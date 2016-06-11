@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Login Page | Amaze UI Example</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/amazeui.flat.min.css">
+
+    <style>
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .header p {
+            font-size: 14px;
+        }
+
+        html, body {
+            background-color: #EBEBEB;
+        }
+
+        .header .am-g{
+            height: 50px;line-height: 50px;
+            background-color: #0e90d2;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+        }
+
+        .am-icon-ul li.on{
+            border-bottom: solid 5px #fff;
+            height: 48px;
+        }
+
+        .am-icon-ul li.off{
+            height: 36px;
+            font-size: 1.5rem;
+        }
+
+        .header {
+            text-align: left;
+        }
+
+        .pCenter{
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .am-form input[type=number], .am-form input[type=search], .am-form input[type=text], .am-form input[type=password], .am-form input[type=datetime], .am-form input[type=datetime-local], .am-form input[type=date], .am-form input[type=month], .am-form input[type=time], .am-form input[type=week], .am-form input[type=email], .am-form input[type=url], .am-form input[type=tel], .am-form input[type=color], .am-form select, .am-form textarea, .am-form-field{
+            font-size:1.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="am-g" >
+        <ul class="am-icon-ul am-nav-pills">
+            <li class="on">就诊预约</li>
+            <li class="off">信息填写</li>
+        </ul>
+    </div>
+    <hr/>
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <form method="post" class="am-form am-form-horizontal" style="    font-size: 1.5rem;">
+            <fieldset>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-name-1" class="am-u-sm-3 am-form-label">姓名:</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" class="" id="doc-ipt-name-1" placeholder="输入您的姓名">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">性别:</label>
+                    <div class="am-u-sm-9">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 男
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 女
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-birthday-1" class="am-u-sm-4 am-form-label">出生日期:</label>
+                    <div class="am-u-sm-8">
+                        <input id="datetimepicker5" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker required />
+                    </div>
+
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-people-1" class="am-u-sm-3 am-form-label">民族:</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" class="" id="doc-ipt-people-1" placeholder="输入您的民族">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-marr-1" class="am-u-sm-4 am-form-label">婚姻状况:</label>
+                    <div class="am-u-sm-8">
+                        <input type="text" class="" id="doc-ipt-marr-1" placeholder="输入您的民族">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-work-1" class="am-u-sm-3 am-form-label">主业:</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" class="" id="doc-ipt-work-1" placeholder="您的主业">
+                    </div>
+                    </div>
+                <div class="am-form-group">
+
+                    <label for="doc-ipt-subwork-1" class="am-u-sm-3 am-form-label">副业:</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" class="" id="doc-ipt-subwork-1" placeholder="您的副业">
+                    </div>
+                </div>
+
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">您是否在本县(市)出生:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">您是否一直住在本县:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-desease-1" class="am-u-sm-4 am-form-label">常住地址:</label>
+                    <div class="am-u-sm-8">
+                        <input type="text" class="" id="doc-ipt-desease-1" placeholder="省、市(地区)县(区)">
+                    </div>
+
+
+
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-stomach-1" class="am-u-sm-4 am-form-label">胃镜诊断:</label>
+                    <div class="am-u-sm-8">
+                        <input type="text" class="" id="doc-ipt-stomach-1" placeholder="">
+                    </div>
+
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-desease-1" class="am-u-sm-4 am-form-label">病理诊断:</label>
+                    <div class="am-u-sm-8">
+                        <input type="text" class="" id="doc-ipt-desease-1" placeholder="">
+                    </div>
+
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-stomachStory-1" class="am-u-sm-12 am-form-label">胃、十二指肠病病史:</label>
+                    <div class="am-u-sm-12">
+                        <input type="text" class="" id="doc-ipt-stomachStory-1" placeholder="">
+                    </div>
+
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">是否有肿瘤家族史:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ipt-stomachRelate-1" class="am-u-sm-12 am-form-label">胃肠道疾病相关症状:</label>
+                    <div class="am-u-sm-12">
+                        <input type="text" class="" id="doc-ipt-stomachRelate-1" placeholder="">
+                    </div>
+
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">是否患过其它肿瘤:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                    <div class="am-u-sm-2"></div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-select-1" class="am-u-sm-12 am-form-label">直系亲属中是否有人患过癌症</label>
+                    <div class="am-u-sm-6">
+                        <select id="doc-select-1">
+                            <option value="option2">肝癌</option>
+                            <option value="option3">肺癌</option>
+                            <option value="option3">食道癌</option>
+                            <option value="option3">结肠癌</option>
+                            <option value="option3">乳腺癌</option>
+                            <option value="option3">其它(说明)</option>
+                        </select>
+                        <span class="am-form-caret"></span>
+                    </div>
+                    <div class="am-u-sm-6">
+                        <input type="text" class="" id="doc-ipt-other-1" placeholder="其它,请说明">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-select-1" class="am-u-sm-5 am-form-label">与您的关系</label>
+                    <div class="am-u-sm-4">
+                        <select id="doc-select-1">
+                            <option value="option1">父亲</option>
+                            <option value="option2">母亲</option>
+                            <option value="option3">兄弟</option>
+                            <option value="option3">姐妹</option>
+                            <option value="option3">祖父母</option>
+                            <option value="option3">外祖父母</option>
+                        </select>
+                        <span class="am-form-caret"></span>
+                    </div>
+                    <div class="am-u-sm-2">
+                    </div>
+                </div>
+
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">是否曾做过幽门螺杆菌感染的相关检查:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">若做过,结果如何:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 1)阴性
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 2)阳性
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">是否做过抗幽门螺杆菌治疗:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-ta-1" class="am-u-sm-12 am-form-label">若有, 所用药物有:</label>
+                    <div class="am-u-sm-6">
+                        <select id="doc-select-1">
+                            <option value="option1">克拉霉素</option>
+                            <option value="option2">左氧氟沙星</option>
+                            <option value="option3">甲硝唑</option>
+                            <option value="option3">阿莫西林</option>
+                            <option value="option3">呋喃唑酮</option>
+                            <option value="option3">四环素</option>
+                            <option value="option3">奥美拉唑</option>
+                            <option value="option3">埃索美拉唑</option>
+                            <option value="option3">雷贝拉唑</option>
+                        </select>
+                        <span class="am-form-caret"></span>
+                    </div>
+                    <div class="am-u-sm-6">
+                        <input type="text" class="" id="doc-ipt-other-1" placeholder="其它药物">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">近2周来服用过消炎止痛药吗?</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 无
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 有
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">近2周来服用过抗酸吗?</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 无
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 有
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">是否了解幽门螺杆感染和消化道疾病的关系?</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 是
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="doc-select-10" class="am-u-sm-1 am-form-label"
+                           style="line-height: 33px; height: 33px; padding-top: 0;">第</label>
+
+                    <div class="am-u-sm-3">
+                        <select id="doc-select-10" style="font-size: 1.4rem;" class="am-form-horizontal">
+                            <option value="option1">1</option>
+                            <option value="option2">2</option>
+                            <option value="option3">3</option>
+                            <option value="option3">>3</option>
+                        </select>
+                    </div>
+                    <label for="doc-select-10" class="am-u-sm-3 am-form-label"
+                           style="line-height: 33px; height: 33px; padding-top: 0;">次治疗</label>
+
+                    <div class="am-u-sm-4">
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-6 am-form-label" style="
+">我的治疗意愿:</label>
+                    <div class="am-u-sm-12">
+                        <label class="am-radio-inline">
+                            <input type="radio" value="" name="docInlineRadio"> 根据病情
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio">强烈治疗意愿 </label>
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-sm-6 am-u-sm-centered">
+                        <input type="submit" name="" value="提交" class="am-btn am-btn-primary am-btn-sm am-fl" onclick="application();return false;"
+                               style="width: 100%;">
+
+                    </div>
+                </div>
+
+            </fieldset>
+
+        </form>
+        <hr>
+
+    </div>
+</div>
+
+<script>
+    function application(){
+        window.location.href = "appointment.html";
+
+
+    }
+</script>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.datetimepicker.js"></script>
+
+<script>
+    $('#datetimepicker')
+            .datetimepicker()
+            .on('changeDate', function(ev){
+                alert(ev.date)
+            });
+</script>
+</body>
+</html>

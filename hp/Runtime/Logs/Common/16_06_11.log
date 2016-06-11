@@ -1,0 +1,12 @@
+[ 2016-06-11T21:25:46+08:00 ] ::1 /thinkphp/hp/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+ERR: 无法加载模块:Hp
+
+[ 2016-06-11T21:25:50+08:00 ] ::1 /thinkphp/hp/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000358s ]
+ERR: 无法加载模块:Hp
+
