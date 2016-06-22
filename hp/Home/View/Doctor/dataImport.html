@@ -95,17 +95,17 @@
             <fieldset>
 
                 <div class="am-form-group">
-                    <label for="doc-ipt-name-1" class="am-u-sm-4 am-form-label">研究编码:</label>
+                    <label for="id" class="am-u-sm-4 am-form-label">研究编码:</label>
                     <div class="am-u-sm-8">
-                        <input type="text" class="" id="doc-ipt-name-1" placeholder="(系统自动生成)">
+                        <input type="text" class="" id="id" name="id" placeholder="(系统自动生成)">
                     </div>
                 </div>
 
                 <div class="am-form-group">
-                    <label for="doc-select-10" class="am-u-sm-1 am-form-label" style="line-height: 33px; height: 33px; padding-top: 0;">第</label>
+                    <label for="times" class="am-u-sm-1 am-form-label" style="line-height: 33px; height: 33px; padding-top: 0;">第</label>
 
                     <div class="am-u-sm-3">
-                        <select id="doc-select-10" style="font-size: 1.4rem;" class="am-form-horizontal">
+                        <select id="times" name="times" style="font-size: 1.4rem;" class="am-form-horizontal">
                             <option value="option1">1</option>
                             <option value="option2">2</option>
                             <option value="option3">3</option>
@@ -120,9 +120,9 @@
                 </div>
 
                 <div class="am-form-group">
-                    <label for="doc-ipt-name-1" class="am-u-sm-4 am-form-label">手机号码:</label>
+                    <label for="phoneNumber" class="am-u-sm-4 am-form-label">手机号码:</label>
                     <div class="am-u-sm-8">
-                        <input type="text" class="" id="doc-ipt-name-1" placeholder="输入您的号码">
+                        <input type="text" class="" id="phoneNumber" name="phoneNumber" placeholder="输入您的号码">
                     </div>
                 </div>
 
@@ -130,41 +130,41 @@
                     <label class="am-u-sm-3 am-form-label">性别:</label>
                     <div class="am-u-sm-9">
                         <label class="am-radio-inline">
-                            <input type="radio" value="" name="docInlineRadio"> 男
+                            <input type="radio" value="" name="sex"> 男
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 女
+                            <input type="radio" name="sex"> 女
                         </label>
                     </div>
                 </div>
 
                 <div class="am-form-group">
-                    <label for="doc-ipt-name-1" class="am-u-sm-3 am-form-label">年龄:</label>
+                    <label for="age" class="am-u-sm-3 am-form-label">年龄:</label>
                     <div class="am-u-sm-9">
-                        <input type="text" class="" id="doc-ipt-name-1" placeholder="输入您的号码">
+                        <input type="text" class="" id="age" name="age" placeholder="输入您的年龄">
                     </div>
                 </div>
 
 
                 <div class="am-form-group">
-                    <label for="doc-ipt-name-1" class="am-u-sm-3 am-form-label">民族:</label>
+                    <label for="nationality" class="am-u-sm-3 am-form-label">民族:</label>
                     <div class="am-u-sm-9">
-                        <input type="text" class="" id="doc-ipt-name-1" placeholder="输入您的号码">
+                        <input type="text" class="" id="nationality" name="nationality" placeholder="输入您的民族">
                     </div>
                 </div>
 
 
                 <div class="am-form-group">
-                    <label for="doc-ipt-name-1" class="am-u-sm-3 am-form-label">职业:</label>
+                    <label for="occupation" class="am-u-sm-3 am-form-label">职业:</label>
                     <div class="am-u-sm-9">
-                        <input type="text" class="" id="doc-ipt-name-1" placeholder="输入您的号码">
+                        <input type="text" class="" id="occupation" name="occupation" placeholder="输入您的职业">
                     </div>
                 </div>
 
                 <div class="am-form-group">
-                    <label for="doc-ipt-name-1" class="am-u-sm-7 am-form-label">临床或胃镜诊断：</label>
+                    <label for="gastroscope" class="am-u-sm-7 am-form-label">临床或胃镜诊断：</label>
                     <div class="am-u-sm-12">
-                        <input type="text" class="" id="doc-ipt-name-1" placeholder="输入您的临床或胃镜诊断">
+                        <input type="text" class="" id="gastroscope" name="gastroscope" placeholder="输入您的临床或胃镜诊断">
                     </div>
                 </div>
 
@@ -172,13 +172,13 @@
                     <label for="doc-ipt-desease-1" class="am-u-sm-12 am-form-label">常住地址:</label>
                     <div id="address">
                         <div class="am-u-sm-4">
-                            <select class="prov"></select><span class="am-form-caret"></span>
+                            <select class="prov" id="province" name="province"></select><span class="am-form-caret"></span>
                         </div>
                         <div class="am-u-sm-4">
-                            <select class="city" disabled="disabled"></select><span class="am-form-caret"></span>
+                            <select class="city" disabled="disabled" id="city" name="city"></select><span class="am-form-caret"></span>
                         </div>
                         <div class="am-u-sm-4">
-                            <select class="dist" disabled="disabled"></select><span class="am-form-caret"></span>
+                            <select class="dist" disabled="disabled" id="district" name="district"></select><span class="am-form-caret"></span>
                         </div>
                     </div>
                     <!--<div class="am-u-sm-6">-->
@@ -194,13 +194,13 @@
                     <label class="am-u-sm-12 am-form-label">患者HP根除治疗医院:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="" name="docInlineRadio"> 一般
+                            <input type="radio" value="" name="inclination"> 一般
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 病情需要
+                            <input type="radio" name="inclination"> 病情需要
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 强烈要求
+                            <input type="radio" name="inclination"> 强烈要求
                         </label>
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                 <div class="am-form-group">
                     <label class="am-u-sm-12 am-form-label">HP呼气实验:</label>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1">
+                        <select id="carbonType" name="carbonType">
                             <option value="option1">13C</option>
                             <option value="option2">14C</option>
                        </select>
@@ -230,10 +230,10 @@
                     </div>
                     <div class="am-u-sm-8">
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阴性
+                            <input type="radio" name="carbon"> 阴性
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阳性
+                            <input type="radio" name="carbon"> 阳性
                         </label>
                     </div>
                 </div>
@@ -243,10 +243,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阴性
+                            <input type="radio" name="germ"> 阴性
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阳性
+                            <input type="radio" name="germ"> 阳性
                         </label>
                     </div>
                 </div>
@@ -256,10 +256,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阴性
+                            <input type="radio" name="drugSensitive"> 阴性
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阳性
+                            <input type="radio" name="drugSensitive"> 阳性
                         </label>
                     </div>
                 </div>
@@ -269,10 +269,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="clarithromycin"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="clarithromycin"> 敏感
                         </label>
                     </div>
                 </div>
@@ -282,10 +282,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="levofloxacin"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="levofloxacin"> 敏感
                         </label>
                     </div>
                 </div>
@@ -295,10 +295,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="amoxycillin"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="amoxycillin"> 敏感
                         </label>
                     </div>
                 </div>
@@ -308,10 +308,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="furazolidone"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="furazolidone"> 敏感
                         </label>
                     </div>
                 </div>
@@ -322,10 +322,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="tetracycline"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="tetracycline"> 敏感
                         </label>
                     </div>
                 </div>
@@ -335,10 +335,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="metronidazole"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="metronidazole"> 敏感
                         </label>
                     </div>
                 </div>
@@ -349,10 +349,10 @@
                     <div class="am-u-sm-8">
 
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 耐药
+                            <input type="radio" name="otherResult"> 耐药
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 敏感
+                            <input type="radio" name="otherResult"> 敏感
                         </label>
                     </div>
                 </div>
@@ -373,13 +373,13 @@
                     <label class="am-u-sm-12 am-form-label">患者HP根除治疗医院:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="" name="docInlineRadio" id="sanlian"> 三联
+                            <input type="radio" value="" name="perscription" id="sanlian"> 三联
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio" id="silian"> 四联
+                            <input type="radio" name="perscription" id="silian"> 四联
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio" id="otherlian"> 其它
+                            <input type="radio" name="perscription" id="otherlian"> 其它
                         </label>
                     </div>
                 </div>
@@ -388,102 +388,22 @@
                     <label class="am-u-sm-3 am-form-label">疗程:</label>
                     <div class="am-u-sm-9">
                         <label class="am-radio-inline">
-                            <input type="radio" value="" name="docInlineRadio"> 7天
+                            <input type="radio" value="" name="period"> 7天
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 10天
+                            <input type="radio" name="period"> 10天
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 14天
+                            <input type="radio" name="period"> 14天
                         </label>
                     </div>
                 </div>
 
-
-                <div class="am-form-group sanlian" style="font-size: 1.4rem; display: none">
-                    <label for="doc-select-1" class="am-u-sm-12 am-form-label">三联：</label>
-                    <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">抗生素</option>
-                            <option value="option1">克拉霉素</option>
-                            <option value="option1">左氧氟沙星</option>
-                            <option value="option1">阿莫西林</option>
-                            <option value="option1">呋喃唑酮</option>
-                            <option value="option1">四环素</option>
-                            <option value="option1">甲硝唑</option>
-                            <option value="option1">阿奇霉素</option>
-                            <option value="option1">莫西沙星</option>
-                            <option value="option1">利福平</option>
-                            <option value="option1">其他</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-                    <div class="am-u-sm-3">
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量" style="font-size: 1.4rem;">
-                    </div>
-                    <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-
-                    <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">抗生素</option>
-                            <option value="option1">克拉霉素</option>
-                            <option value="option1">左氧氟沙星</option>
-                            <option value="option1">阿莫西林</option>
-                            <option value="option1">呋喃唑酮</option>
-                            <option value="option1">四环素</option>
-                            <option value="option1">甲硝唑</option>
-                            <option value="option1">阿奇霉素</option>
-                            <option value="option1">莫西沙星</option>
-                            <option value="option1">利福平</option>
-                            <option value="option1">其他</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-                    <div class="am-u-sm-3">
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量" style="font-size: 1.4rem;">
-                    </div>
-                    <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-
-                    <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">PPI</option>
-                            <option value="option1">奥美拉唑</option>
-                            <option value="option1">埃索美拉唑</option>
-                            <option value="option1">雷贝拉唑</option>
-                            <option value="option1">兰索拉唑</option>
-                            <option value="option1">泮托拉唑</option>
-                            <option value="option1">其他</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-                    <div class="am-u-sm-3">
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量" style="font-size: 1.4rem;">
-                    </div>
-                    <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-                </div>
 
                 <div class="am-form-group silian" style="display: none">
-                    <label for="doc-select-1" class="am-u-sm-12 am-form-label">四联:</label>
+                    <label style="display:none" class="am-u-sm-12 am-form-label">四联:</label>
                     <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
+                        <select id="antibioticA" name="antibioticA" style="font-size: 1.4rem;">
                             <option value="option1">抗生素</option>
                             <option value="option1">克拉霉素</option>
                             <option value="option1">左氧氟沙星</option>
@@ -500,10 +420,10 @@
                     </div>
                     <div class="am-u-sm-3">
 
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量">
+                        <input type="text" class="" id="doseA" name="doseA" placeholder="用量">
                     </div>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
+                        <select id="sourceA" name="sourceA" style="font-size: 1.4rem;">
                             <option value="option1">1)进口</option>
                             <option value="option2">2)国产</option>
                         </select>
@@ -511,100 +431,103 @@
                     </div>
 
                     <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">抗生素</option>
-                            <option value="option1">克拉霉素</option>
-                            <option value="option1">左氧氟沙星</option>
-                            <option value="option1">阿莫西林</option>
-                            <option value="option1">呋喃唑酮</option>
-                            <option value="option1">四环素</option>
-                            <option value="option1">甲硝唑</option>
-                            <option value="option1">阿奇霉素</option>
-                            <option value="option1">莫西沙星</option>
-                            <option value="option1">利福平</option>
-                            <option value="option1">其他</option>
+                        <select id="antibioticB" name="antibioticB" style="font-size: 1.4rem;">
+                            <option value="0">抗生素</option>
+                            <option value="1">克拉霉素</option>
+                            <option value="2">左氧氟沙星</option>
+                            <option value="3">阿莫西林</option>
+                            <option value="4">呋喃唑酮</option>
+                            <option value="5">四环素</option>
+                            <option value="6">甲硝唑</option>
+                            <option value="7">阿奇霉素</option>
+                            <option value="8">莫西沙星</option>
+                            <option value="9">利福平</option>
+                            <option value="10">其他</option>
                         </select>
                         <span class="am-form-caret"></span>
                     </div>
                     <div class="am-u-sm-3">
 
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量">
+                        <input type="text" class="" id="doseB" name="doseB" placeholder="用量">
                     </div>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
+                        <select id="sourceB" name="sourceB" style="font-size: 1.4rem;">
+                            <option value="0">1)进口</option>
+                            <option value="1">2)国产</option>
                         </select>
                         <span class="am-form-caret"></span>
                     </div>
 
                     <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">PPI</option>
-                            <option value="option1">奥美拉唑</option>
-                            <option value="option1">埃索美拉唑</option>
-                            <option value="option1">雷贝拉唑</option>
-                            <option value="option1">兰索拉唑</option>
-                            <option value="option1">泮托拉唑</option>
-                            <option value="option1">其他</option>
+                        <select id="PPI" name="PPI" style="font-size: 1.4rem;">
+                            <option value="0">PPI</option>
+                            <option value="1">奥美拉唑</option>
+                            <option value="2">埃索美拉唑</option>
+                            <option value="3">雷贝拉唑</option>
+                            <option value="4">兰索拉唑</option>
+                            <option value="5">泮托拉唑</option>
+                            <option value="6">其他</option>
                         </select>
                         <span class="am-form-caret"></span>
                     </div>
                     <div class="am-u-sm-3">
 
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量">
+                        <input type="text" class="" id="dosePPI" name="dosePPI" placeholder="用量">
                     </div>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
+                        <select id="sourcePPI" name="sourcePPI" style="font-size: 1.4rem;">
+                            <option value="0">1)进口</option>
+                            <option value="1">2)国产</option>
                         </select>
                         <span class="am-form-caret"></span>
                     </div>
 
-                    <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">铋剂</option>
-                            <option value="option1">枸橼酸铋钾</option>
-                            <option value="option1">胶体果胶铋</option>
-                            <option value="option1">胶体次枸橼酸铋</option>
-                            <option value="option1">其他</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
-                    <div class="am-u-sm-3">
+                    <div class="biji">
+                        <div class="am-u-sm-5">
+                            <select id="bismuth" name="bismuth" style="font-size: 1.4rem;">
+                                <option value="0">铋剂</option>
+                                <option value="1">枸橼酸铋钾</option>
+                                <option value="2">胶体果胶铋</option>
+                                <option value="3">胶体次枸橼酸铋</option>
+                                <option value="4">其他</option>
+                            </select>
+                            <span class="am-form-caret"></span>
+                        </div>
+                        <div class="am-u-sm-3">
 
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量">
+                            <input type="text" id="dosebismuth" name="dosebismuth" placeholder="用量">
+                        </div>
+                        <div class="am-u-sm-4">
+                            <select id="sourcebismuth" name="sourcebismuth" style="font-size: 1.4rem;">
+                                <option value="0">1)进口</option>
+                                <option value="1">2)国产</option>
+                            </select>
+                            <span class="am-form-caret"></span>
+                        </div>
                     </div>
-                    <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
-                        </select>
-                        <span class="am-form-caret"></span>
-                    </div>
+
                 </div>
 
 
                 <div class="am-form-group otherlian" style="display: none">
-                    <label for="doc-select-1" class="am-u-sm-12 am-form-label">其它:</label>
+                    <label style="display:none"  class="am-u-sm-12 am-form-label">其它:</label>
                     <div class="am-u-sm-5">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)其它A</option>
-                            <option value="option2">2)其它B</option>
-                            <option value="option3">3)其它C</option>
-                            <option value="option3">4)其它D</option>
+                        <select id="othelrperscription" name="othelrperscription" style="font-size: 1.4rem;">
+                            <option value="0">其它A</option>
+                            <option value="1">其它B</option>
+                            <option value="2">其它C</option>
+                            <option value="3">其它D</option>
                         </select>
                         <span class="am-form-caret"></span>
                     </div>
                     <div class="am-u-sm-3">
 
-                        <input type="text" class="" id="doc-ipt-other-1" placeholder="用量">
+                        <input type="text" id="doseOther" name="doseOther" placeholder="用量">
                     </div>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1" style="font-size: 1.4rem;">
-                            <option value="option1">1)进口</option>
-                            <option value="option2">2)国产</option>
+                        <select id="sourceOther" name="sourceOther" style="font-size: 1.4rem;">
+                            <option value="0">进口</option>
+                            <option value="1">国产</option>
                         </select>
                         <span class="am-form-caret"></span>
                     </div>
@@ -630,7 +553,7 @@
                 <div class="am-form-group">
                     <label class="am-u-sm-12 am-form-label">第一次:</label>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1">
+                        <select id="firstTimeType" name="firstTimeType">
                             <option value="option1">13C</option>
                             <option value="option2">14C</option>
                         </select>
@@ -638,10 +561,10 @@
                     </div>
                     <div class="am-u-sm-8">
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阴性
+                            <input type="radio" name="firstTimeResult"> 阴性
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阳性
+                            <input type="radio" name="firstTimeResult"> 阳性
                         </label>
                     </div>
                 </div>
@@ -651,14 +574,14 @@
                 <div class="am-form-group">
                     <label for="doc-ipt-birthday-1" class="am-u-sm-12 am-form-label">呼吸实验诊断时间:</label>
                     <div class="am-u-sm-12">
-                        <input id="datetimepicker1" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker readonly required />
+                        <input id="firstTimeDate" type="text" name="firstTimeDate" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker readonly required />
                     </div>
                 </div>
 
                 <div class="am-form-group">
                     <label class="am-u-sm-12 am-form-label">第二次:</label>
                     <div class="am-u-sm-4">
-                        <select id="doc-select-1">
+                        <select id="secondTimeType" name="secondTimeType">
                             <option value="option1">13C</option>
                             <option value="option2">14C</option>
                         </select>
@@ -666,10 +589,10 @@
                     </div>
                     <div class="am-u-sm-8">
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阴性
+                            <input type="radio" name="secondTimeResult"> 阴性
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 阳性
+                            <input type="radio" name="secondTimeResult"> 阳性
                         </label>
                     </div>
                 </div>
@@ -677,7 +600,7 @@
                 <div class="am-form-group">
                     <label for="doc-ipt-birthday-1" class="am-u-sm-12 am-form-label">呼吸实验诊断时间:</label>
                     <div class="am-u-sm-12">
-                            <input id="datetimepicker2" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker readonly required />
+                            <input id="secondTimeDate" name="secondTimeDate" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker readonly required />
                     </div>
                 </div>
 
@@ -687,7 +610,6 @@
     </div>
 </div>
 
-
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">不良反应</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
@@ -696,28 +618,28 @@
 
                 <div class="am-form-group">
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option1"> 头晕
+                        <input type="checkbox" value="0"> 头晕
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option2"> 过敏
+                        <input type="checkbox" value="1"> 过敏
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option3"> 食欲不振
+                        <input type="checkbox" value="2"> 食欲不振
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option3"> 呕吐
+                        <input type="checkbox" value="3"> 呕吐
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option3"> 恶心
+                        <input type="checkbox" value="4"> 恶心
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option3"> 腹泻
+                        <input type="checkbox" value="5"> 腹泻
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option3"> 胃不舒服
+                        <input type="checkbox" value="6"> 胃不舒服
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="option3"> 其它
+                        <input type="checkbox" value="7"> 其它
                     </label>
                 </div>
 
@@ -764,14 +686,14 @@
             });
 
     $('#sanlian').click(function(){
-        $('.sanlian').css('display', '');
-        $('.silian').css('display', 'none');
+        $('.silian').css('display', '');
+        $('.biji').css('display', 'none');
         $('.otherlian').css('display', 'none');
     })
 
     $('#silian').click(function(){
-        $('.sanlian').css('display', 'none');
         $('.silian').css('display', '');
+        $('.biji').css('display', '');
         $('.otherlian').css('display', 'none');
 
     })
