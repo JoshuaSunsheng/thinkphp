@@ -99,9 +99,10 @@
         <div class="am-u-sm-12">
 
             <ol class="am-breadcrumb" style="margin: 0;   font-size: 1.08em;  font-weight: 600;">
-                <li><a href="myStudy.html" class="am-header-li-a-no-active">我的研究</a></li>
-                <li><a href="myPatient.html" class="am-header-li-a-active">我的患者</a></li>
-                <li><a href="dataImport.html" class="am-header-li-a-no-active">数据录入</a></li>
+
+                <li><a href="<?php echo (CONTROLLER); ?>/myStudy" class="am-header-li-a-no-active">我的研究</a></li>
+                <li><a href="<?php echo (CONTROLLER); ?>/myPatient" class="am-header-li-a-active">我的患者</a></li>
+                <li><a href="<?php echo (CONTROLLER); ?>/dataImport" class="am-header-li-a-no-active">数据录入</a></li>
             </ol>
 
         </div>

@@ -11,12 +11,19 @@ namespace Home\Controller;
 use Think\Controller;
 
 define(CONTROLLER, __CONTROLLER__);
+define(OAURL_CODE, "https://api.weixin.qq.com/sns/oauth2/access_token");
+define(OAURL_ACCESS_TOKEN, "https://api.weixin.qq.com/sns/oauth2/access_token");
+
+define(appId, "wxfb93bd95a58c1079");
+define(appsecret, "d4624c36b6795d1d99dcf0547af5443d");
 
 class PatientController extends Controller{
 
     /*
      * 病人第一次注册登录
      * */
+
+
     function login(){
         //获取系统常量, 并分组
         //var_dump(get_defined_constants(true));
@@ -24,6 +31,21 @@ class PatientController extends Controller{
 //        var_dump(get_defined_constants(true));
         \Think\Log::record('record测试日志信息');
         \Think\Log::write('write测试日志信息，这是警告级别，并且实时写入','WARN');
+
+        //微信网页授权登录获取code
+        $code = $_GET['code'];
+
+        $get_code_url = OAURL_ACCESS_TOKEN + '?appid=' + appId + '&secret=' + appsecret + '&code=' + $code + '&grant_type=authorization_code';
+        $token_data = get($get_code_url);
+
+        $token = json_decode($token_data, TRUE);
+        $token['phoneNumber'] = $_POST('phoneNumber');
+
+        //$param = file_get_contents(OAURL, false, stream_context_create($opts));
+        session('token',$token); //保存授权信息
+        var_dump(session('token'), true);
+
+
     }
 
     /*
@@ -43,15 +65,28 @@ class PatientController extends Controller{
     function application(){
         //获取系统常量, 并分组
         //var_dump(get_defined_constants(true));
-        $this -> display();
+
+        $token = session('token');
+        if(!empty($token)){
+            $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
+            $Patient->getByPhoneNumber();
+            $data = this->$_POST();
+            $this -> display();
+
+        }
+
     }
 
     /*
-     * 病人第一次注册登录
+     * 病人预约
      * 预约医生
      * */
     function appointment(){
         //获取系统常量, 并分组
+
+        //$Appointment = new \Home\Model\AppointmentModel(); // 实例化 Appointment对象
+
+
         //var_dump(get_defined_constants(true));
         $this -> display();
     }
@@ -98,7 +133,7 @@ class PatientController extends Controller{
 
 
         //var_dump($data);
-        //$arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
+        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
         //if (substr($arr,21,6) == 000000) {
         if (true) {
             //如果成功就，这里只是测试样式，可根据自己的需求进行调节

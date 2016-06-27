@@ -149,22 +149,58 @@
                 <div class="am-form-group">
                     <label for="nationality" class="am-u-sm-3 am-form-label">民族:</label>
                     <div class="am-u-sm-9">
-                        <input type="text" class="" id="nationality" name="nationality" placeholder="输入您的民族">
+                        <select id="nationality">
+                            <option value="0">汉族</option>
+                            <option value="1">壮族</option>
+                            <option value="2">满族</option>
+                            <option value="3">回族</option>
+                            <option value="4">苗族</option>
+                            <option value="5">维吾尔族</option>
+                            <option value="6">土家族</option>
+                            <option value="7">蒙古族</option>
+                            <option value="8">藏族</option>
+                            <option value="9">朝鲜族</option>
+                            <option value="10">其他名族</option>
+                        </select>
+                        <span class="am-form-caret"></span>
                     </div>
                 </div>
 
 
                 <div class="am-form-group">
                     <label for="occupation" class="am-u-sm-3 am-form-label">职业:</label>
-                    <div class="am-u-sm-9">
-                        <input type="text" class="" id="occupation" name="occupation" placeholder="输入您的职业">
+                    <div class="am-u-sm-4">
+                        <select id="occupation">
+                            <option value="0">无职业</option>
+                            <option value="1">工人</option>
+                            <option value="2">务农</option>
+                            <option value="3">服务行业</option>
+                            <option value="4">个体户</option>
+                            <option value="5">家务</option>
+                            <option value="6">其它（说明）</option>
+                        </select>
+                    </div>
+                    <div class="am-u-sm-5">
+                        <input type="text" class="" id="otheroccupation" placeholder="其它,请说明">
                     </div>
                 </div>
 
                 <div class="am-form-group">
                     <label for="gastroscope" class="am-u-sm-7 am-form-label">临床或胃镜诊断：</label>
-                    <div class="am-u-sm-12">
-                        <input type="text" class="" id="gastroscope" name="gastroscope" placeholder="输入您的临床或胃镜诊断">
+                    <div class="am-u-sm-6" style="padding-right: 0px;">
+                        <select id="gastroscope" name="gastroscope">
+                            <option value="">请选择</option>
+                            <option value="0">慢性浅表性炎</option>
+                            <option value="1">慢性萎缩性胃炎</option>
+                            <option value="2">胃溃疡</option>
+                            <option value="3">十二指肠溃疡</option>
+                            <option value="4">复合溃疡</option>
+                            <option value="5">胃癌</option>
+                            <option value="6">其它（说明）</option>
+                        </select>
+                    </div>
+                    <div class="am-u-sm-6" style="padding-top: 5px;">
+                        <input type="text" class="" id="othergastroscope" placeholder="其它,请说明">
                     </div>
                 </div>
 
@@ -353,6 +389,22 @@
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" name="otherResult"> 敏感
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-12 am-form-label">PPI药物代谢类型:</label>
+                    <div class="am-u-sm-12">
+
+                        <label class="am-radio-inline">
+                            <input type="radio" name="PPIdxtype"> 快代谢
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="PPIdxtype"> 慢代谢
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="PPIdxtype"> 超快代谢
                         </label>
                     </div>
                 </div>
