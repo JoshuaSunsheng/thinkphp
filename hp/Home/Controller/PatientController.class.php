@@ -8,6 +8,7 @@
 
 namespace Home\Controller;
 
+use Home\Model\PatientModel;
 use Think\Controller;
 
 define(CONTROLLER, __CONTROLLER__);
@@ -34,17 +35,15 @@ class PatientController extends Controller{
 
         //微信网页授权登录获取code
         $code = $_GET['code'];
-
-        $get_code_url = OAURL_ACCESS_TOKEN + '?appid=' + appId + '&secret=' + appsecret + '&code=' + $code + '&grant_type=authorization_code';
-        $token_data = get($get_code_url);
+        $get_code_url = OAURL_ACCESS_TOKEN.'?appid='.appId.'&secret='.appsecret.'&code='.$code.'&grant_type=authorization_code';
+        $token_data = file_get_contents($get_code_url);
 
         $token = json_decode($token_data, TRUE);
-        $token['phoneNumber'] = $_POST('phoneNumber');
-
+        echo "<hr>";
+        $token['appid'] = appId;
         //$param = file_get_contents(OAURL, false, stream_context_create($opts));
         session('token',$token); //保存授权信息
         var_dump(session('token'), true);
-
 
     }
 
@@ -65,16 +64,20 @@ class PatientController extends Controller{
     function application(){
         //获取系统常量, 并分组
         //var_dump(get_defined_constants(true));
-
         $token = session('token');
-        if(!empty($token)){
-            $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
-            $Patient->getByPhoneNumber();
-            $data = this->$_POST();
-            $this -> display();
-
+        if(empty($token)) {
+            redirect(CONTROLLER.'/login', 2, '页面跳转中...');
         }
 
+        if( IS_CGI){
+            $this -> display();
+        }
+        else{
+                $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
+                //$Patient->getByPhoneNumber();
+                $Patient->create($_POST,1);
+
+        }
     }
 
     /*
@@ -194,6 +197,12 @@ class PatientController extends Controller{
             }
         }
 
+        $token = session('token'); //保存授权信息
+        $token['phoneNumber'] = $phoneNumber;
+
+        session('token', $token); //保存授权信息
+
+        var_dump(session('token'), true);
 
         $this->ajaxReturn($ret);
 
