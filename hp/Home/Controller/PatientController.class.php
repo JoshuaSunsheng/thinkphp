@@ -24,10 +24,9 @@ class PatientController extends Controller{
      * 病人第一次注册登录
      * */
 
-
     function login(){
         //获取系统常量, 并分组
-        //var_dump(get_defined_constants(true));
+        var_dump(get_defined_constants(true));
         $this -> display();
 //        var_dump(get_defined_constants(true));
         \Think\Log::record('record测试日志信息');
