@@ -14,6 +14,4 @@ class PatientModel extends RelationModel{
             // 定义更多的关联属性
         ),
     );
-
-
 }
