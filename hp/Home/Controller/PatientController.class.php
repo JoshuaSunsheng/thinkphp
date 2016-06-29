@@ -26,7 +26,7 @@ class PatientController extends Controller{
 
     function login(){
         //获取系统常量, 并分组
-        var_dump(get_defined_constants(true));
+        //var_dump(get_defined_constants(true));
         $this -> display();
 //        var_dump(get_defined_constants(true));
         \Think\Log::record('record测试日志信息');
@@ -68,7 +68,7 @@ class PatientController extends Controller{
             redirect(CONTROLLER.'/login', 2, '页面跳转中...');
         }
 
-        if( IS_CGI){
+        if( IS_GET){
             $this -> display();
         }
         else{
@@ -134,8 +134,8 @@ class PatientController extends Controller{
         $data['VALIDTIME'] = date ( "Y-m-d H:i:s", mktime ( date ( "H" ), date ( "i" ) + 5, date ( "s" ), date ( "m" ), date ( "d" ), date ( "Y" ) ) );
 
 
-        //var_dump($data);
-        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
+        echo $authnum;
+        //$arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
         //if (substr($arr,21,6) == 000000) {
         if (true) {
             //如果成功就，这里只是测试样式，可根据自己的需求进行调节
@@ -201,7 +201,8 @@ class PatientController extends Controller{
 
         session('token', $token); //保存授权信息
 
-        var_dump(session('token'), true);
+        //print_r($token);
+        //var_dump($token, true);
 
         $this->ajaxReturn($ret);
 

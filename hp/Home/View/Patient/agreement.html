@@ -208,7 +208,13 @@
 <script>
 
     function agreement(){
-        window.location.href = "{$Think.const.CONTROLLER}/application";
+        if($('input[type="checkbox"]').is(":checked")){
+            window.location.href = "{$Think.const.CONTROLLER}/application";
+        }
+        else{
+            alert(" 请勾选知情同意");
+
+        }
     }
 </script>
 </body>
