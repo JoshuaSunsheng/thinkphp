@@ -76,7 +76,7 @@
 </div>
 <div class="am-g">
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal" style="    font-size: 1.5rem;">
+        <form method="post" id="application" name="application" class="am-form am-form-horizontal" style="    font-size: 1.5rem;">
             <fieldset>
 
                 <div class="am-form-group">
@@ -90,7 +90,7 @@
                     <label class="am-u-sm-3 am-form-label">性别:</label>
                     <div class="am-u-sm-9">
                         <label class="am-radio-inline">
-                            <input type="radio" value="0" name="sex"> 男
+                            <input type="radio" value="0" name="sex" checked="true"> 男
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="1" name="sex"> 女
@@ -101,7 +101,7 @@
                 <div class="am-form-group">
                     <label for="birthday" class="am-u-sm-4 am-form-label">出生日期:</label>
                     <div class="am-u-sm-8">
-                        <input id="birthday" name="birthday" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker required />
+                        <input id="birthday" name="birthday" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker required  readonly/>
                     </div>
 
                 </div>
@@ -181,7 +181,7 @@
                     <label class="am-u-sm-12 am-form-label">您是否在本县(市)出生:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="isBrithInTown"> 是
+                            <input type="radio" value="1" name="isBrithInTown" checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio"  value="0" name="isBrithInTown"> 否
@@ -193,7 +193,7 @@
                     <label class="am-u-sm-12 am-form-label">您是否一直住在本县:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="isInTown"> 是
+                            <input type="radio" value="1" name="isInTown" checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="0" name="isInTown"> 否
@@ -293,7 +293,7 @@
                     <label class="am-u-sm-12 am-form-label">是否有肿瘤家族史:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="iscancerfamily"> 是
+                            <input type="radio" value="1" name="iscancerfamily" checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="0" name="iscancerfamily"> 否
@@ -360,7 +360,7 @@
                     <label class="am-u-sm-12 am-form-label">是否患过其它肿瘤:</label>
                     <div class="am-u-sm-6">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="isothercancer"> 是
+                            <input type="radio" value="1" name="isothercancer" checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="0" name="isothercancer"> 否
@@ -377,7 +377,7 @@
                     <label class="am-u-sm-12 am-form-label">是否曾做过幽门螺杆菌感染的相关检查:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="isCheck"> 是
+                            <input type="radio" value="1" name="isCheck" checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="0" name="isCheck"> 否
@@ -389,10 +389,10 @@
                     <label class="am-u-sm-12 am-form-label">若做过,结果如何:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="0" name="checkStatus"> 1)阴性
+                            <input type="radio" value="0" name="checkStatus" checked="true"> 阴性
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="checkStatus"> 2)阳性
+                            <input type="radio" value="1" name="checkStatus"> 阳性
                         </label>
                     </div>
                 </div>
@@ -402,7 +402,7 @@
                     <label class="am-u-sm-12 am-form-label">是否做过抗幽门螺杆菌治疗:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="isCure"> 是
+                            <input type="radio" value="1" name="isCure"  checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="0" name="isCure"> 否
@@ -435,7 +435,7 @@
                     <label class="am-u-sm-12 am-form-label">近2周来服用过消炎止痛药吗?</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="0" name="usedAnalgesic"> 无
+                            <input type="radio" value="0" name="usedAnalgesic" checked="true"> 无
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="1" name="usedAnalgesic"> 有
@@ -447,7 +447,7 @@
                     <label class="am-u-sm-12 am-form-label">近2周来服用过抗酸吗?</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="0" name="usedAntiacid"> 无
+                            <input type="radio" value="0" name="usedAntiacid" checked="true"> 无
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="1" name="usedAntiacid"> 有
@@ -459,7 +459,7 @@
                     <label class="am-u-sm-12 am-form-label">是否了解幽门螺杆感染和消化道疾病的关系?</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="1" name="knowRelation"> 是
+                            <input type="radio" value="1" name="knowRelation" checked="true"> 是
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="0" name="knowRelation"> 否
@@ -492,7 +492,7 @@
 ">我的治疗意愿:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="0" name="inclination"> 根据病情
+                            <input type="radio" value="0" name="inclination" checked="true"> 根据病情
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" value="1" name="inclination">强烈治疗意愿 </label>
@@ -500,7 +500,7 @@
                 </div>
                 <div class="am-g">
                     <div class="am-u-sm-6 am-u-sm-centered">
-                        <input type="submit" name="" value="提交" class="am-btn am-btn-primary am-btn-sm am-fl" onclick="application();return false;"
+                        <input type="submit" name="" value="提交" class="am-btn am-btn-primary am-btn-sm am-fl" onclick="apply();return false;"
                                style="width: 100%;">
 
                     </div>
@@ -513,14 +513,6 @@
 
     </div>
 </div>
-
-<script>
-    function application(){
-        window.location.href = "{$Think.const.CONTROLLER}/appointment";
-
-
-    }
-</script>
 
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="{$Think.const.JS_URL}jquery.min.js"></script>
@@ -548,6 +540,21 @@
             required: false
         });
     });
+
+    function apply(){
+
+//        window.location.href = "{$Think.const.CONTROLLER}/appointment";
+        var tourl = $("#application").attr("action");
+        var application = $("#application").serialize();
+        alert(application);
+        $.post("__URL__/application", application,function(data,textStatus){
+            alert(data);
+            alert(textStatus);
+        });
+
+    }
+
 </script>
+
 </body>
 </html>

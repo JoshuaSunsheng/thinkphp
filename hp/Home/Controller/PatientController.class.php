@@ -60,23 +60,32 @@ class PatientController extends Controller{
      * 病人第一次注册登录
      * 填写表格
      * */
-    function application(){
+    function application()
+    {
         //获取系统常量, 并分组
         //var_dump(get_defined_constants(true));
         $token = session('token');
-        if(empty($token)) {
-            redirect(CONTROLLER.'/login', 2, '页面跳转中...');
+        if (empty($token)) {
+            redirect(CONTROLLER . '/login', 2, '页面跳转中...');
         }
 
-        if( IS_GET){
-            $this -> display();
-        }
-        else{
-                $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
-                //$Patient->getByPhoneNumber();
-                $Patient->create($_POST,1);
+
+        if (!empty($_POST)) {
+            $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
+            //$Patient->getByPhoneNumber();
+            $Patient->create($_POST, 1);
+            $z = $Patient->add();
+
+            if ($z) {
+                $this->success('提交成功', U(Patient / $this->appointment));
+            } else {
+                echo '提交失败, 请重新提交!';
+            }
+        } else {
+            $this->display();
 
         }
+
     }
 
     /*
