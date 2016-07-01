@@ -12,7 +12,8 @@
 // 应用入口文件
 
 //定义css、img、js常量
-define("SITE_URL","http://localhost:8888/thinkphp/");
+//define("SITE_URL","http://localhost:8888/thinkphp/");
+define("SITE_URL","http://localhost:80/thinkphp/");
 define("CSS_URL",SITE_URL."hp/public/css/"); //css
 define("IMG_URL",SITE_URL."hp/public/img/"); //img
 define("JS_URL",SITE_URL."hp/public/js/"); //js
@@ -20,6 +21,12 @@ define("JS_URL",SITE_URL."hp/public/js/"); //js
 //define("ADMIN_CSS_URL",SITE_URL."shop/public/Admin/css/"); //css
 //define("ADMIN_IMG_URL",SITE_URL."shop/public/Admin/img/"); //css
 //define("ADMIN_JS_URL",SITE_URL."shop/public/Admin/js/"); //css
+
+// 微信使用
+define("OAURL_CODE", "https://api.weixin.qq.com/sns/oauth2/access_token");
+define("OAURL_ACCESS_TOKEN", "https://api.weixin.qq.com/sns/oauth2/access_token");
+define("appId", "wxfb93bd95a58c1079");
+define("appsecret", "d4624c36b6795d1d99dcf0547af5443d");
 
 // 检测PHP环境
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');

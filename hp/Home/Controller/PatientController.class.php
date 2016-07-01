@@ -12,11 +12,6 @@ use Home\Model\PatientModel;
 use Think\Controller;
 
 define(CONTROLLER, __CONTROLLER__);
-define(OAURL_CODE, "https://api.weixin.qq.com/sns/oauth2/access_token");
-define(OAURL_ACCESS_TOKEN, "https://api.weixin.qq.com/sns/oauth2/access_token");
-
-define(appId, "wxfb93bd95a58c1079");
-define(appsecret, "d4624c36b6795d1d99dcf0547af5443d");
 
 class PatientController extends Controller{
 
