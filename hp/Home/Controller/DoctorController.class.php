@@ -41,10 +41,10 @@ class  DoctorController extends Controller{
             //$Patient->getByPhoneNumber();
             $z = $Patient->create($_POST,1);
             if($z){
-                $this->success('新增成功', 'Doctor/myStudy');
+                $this->success('新增成功', 'myStudy');
             }
             else{
-                $this->error('新增成功', 'Doctor/myStudy');
+                $this->error('新增成功', 'myStudy');
             }
 
         }
@@ -54,9 +54,6 @@ class  DoctorController extends Controller{
     }
 
     function register(){
-        $this -> display();
-
-        $this->success('新增成功', 'Doctor/dataImport');
 
         \Think\Log::record('register--------------record测试日志信息');
         \Think\Log::write('register---------------write测试日志信息，这是警告级别，并且实时写入','WARN');
@@ -72,5 +69,13 @@ class  DoctorController extends Controller{
         //$param = file_get_contents(OAURL, false, stream_context_create($opts));
         session('token',$token); //保存授权信息
         var_dump(session('token'), true);
+
+
+        if(!empty($_POST)){
+            
+        }
+        else{
+            $this -> display();
+        }
     }
 }
