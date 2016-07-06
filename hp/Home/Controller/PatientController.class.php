@@ -11,7 +11,7 @@ namespace Home\Controller;
 use Home\Model\PatientModel;
 use Think\Controller;
 
-define(CONTROLLER, __CONTROLLER__);
+define("CONTROLLER", __CONTROLLER__);
 
 class PatientController extends Controller{
 
@@ -60,27 +60,28 @@ class PatientController extends Controller{
         //获取系统常量, 并分组
         //var_dump(get_defined_constants(true));
         $token = session('token');
+
         if (empty($token)) {
-            redirect(CONTROLLER . '/login', 2, '页面跳转中...');
+            //echo CONTROLLER.'/login';
+            redirect(CONTROLLER.'/login', 2, '页面跳转中...');
         }
 
 
         if (!empty($_POST)) {
             $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
             //$Patient->getByPhoneNumber();
+
             $Patient->create($_POST, 1);
             $z = $Patient->add();
 
             if ($z) {
-                $this->success('提交成功', U(Patient / $this->appointment));
+                $this->success('提交成功', 'appointment');
             } else {
                 echo '提交失败, 请重新提交!';
             }
         } else {
             $this->display();
-
         }
-
     }
 
     /*
@@ -93,8 +94,27 @@ class PatientController extends Controller{
         //$Appointment = new \Home\Model\AppointmentModel(); // 实例化 Appointment对象
 
 
-        //var_dump(get_defined_constants(true));
-        $this -> display();
+        $token = session('token');
+
+        if (empty($token)) {
+            redirect(CONTROLLER . '/login', 2, '页面跳转中...');
+        }
+
+
+        if (!empty($_POST)) {
+            $Appointment = new \Home\Model\AppointmentModel(); // 实例化 Patient对象
+            //$Patient->getByPhoneNumber();
+            $Appointment->create($_POST, 1);
+            $z = $Appointment->add();
+            if ($z) {
+                $this->success('提交成功', 'appointment');
+            } else {
+                echo '提交失败, 请重新提交!';
+            }
+        } else {
+            $this->display();
+        }
+
     }
 
     /**

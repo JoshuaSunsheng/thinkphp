@@ -25,6 +25,18 @@ class wechatauth {
     }
 
     /**
+     * 获取微信授权链接
+     *
+     * @param string $redirect_uri 跳转地址
+     * @param mixed $state 参数
+     */
+    public function get_authorize_base_url($redirect_uri = '', $state = '1')
+    {
+        $redirect_uri = urlencode($redirect_uri);
+        return "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$this->app_id}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_base&state={$state}#wechat_redirect";
+    }
+
+    /**
      * 获取授权token
      *
      * @param string $code 通过get_authorize_url获取到的code

@@ -12,8 +12,9 @@
 // 应用入口文件
 
 //定义css、img、js常量
-//define("SITE_URL","http://localhost:8888/thinkphp/");
-define("SITE_URL","http://localhost:80/thinkphp/");
+//define("SITE_URL","http://prttrtnwtc.proxy.qqbrowser.cc/thinkphp/");
+define("SITE_URL","http://localhost:8888/thinkphp/");
+//define("SITE_URL","http://localhost:80/thinkphp/");
 define("CSS_URL",SITE_URL."hp/public/css/"); //css
 define("IMG_URL",SITE_URL."hp/public/img/"); //img
 define("JS_URL",SITE_URL."hp/public/js/"); //js

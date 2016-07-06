@@ -91,7 +91,7 @@
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">基本信息</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
 
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="baseInfo" name="baseInfo" class="am-form am-form-horizontal">
             <fieldset>
 
                 <div class="am-form-group">
@@ -251,7 +251,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">实验诊断</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="experiment" name="experiment" class="am-form am-form-horizontal">
             <fieldset>
 
 
@@ -418,7 +418,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">治疗方案</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="cureMethod" name="cureMethod" class="am-form am-form-horizontal">
             <fieldset>
 
                 <div class="am-form-group" >
@@ -600,7 +600,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">疗效随访</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="result" name="result" class="am-form am-form-horizontal">
             <fieldset>
                 <div class="am-form-group">
                     <label class="am-u-sm-12 am-form-label">第一次:</label>
@@ -665,7 +665,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">不良反应</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="response" name="response" class="am-form am-form-horizontal">
             <fieldset>
 
                 <div class="am-form-group">
@@ -697,7 +697,7 @@
 
                 <div class="am-form-group">
                     <div class="am-u-sm-6 am-u-sm-centered">
-                        <button type="button" class="am-btn am-btn-default am-radius"
+                        <button type="button" class="am-btn am-btn-default am-radius" onclick="dataImp(); return false;"
                                 style="background: #0f8184; color: white;width: 100%;;">提交
                         </button>
 
@@ -722,6 +722,24 @@
 <script src="{$Think.const.JS_URL}amazeui.datetimepicker.js"></script>
 
 <script>
+
+
+    function dataImp() {
+
+        var tourl = $("#response").attr("action");
+        var response = $("#response").serialize();
+        alert (response);
+        $.post("__URL__/register", response,function(data,textStatus){
+            alert(data);
+            location.href = data.url;
+        });
+
+
+//        alert("您的申请已经提交审核,请耐心等待!");
+//        var path = "{$Think.const.CONTROLLER}"
+//        window.location.href = path + "/register";
+    }
+
 
     $(function () {
         $("#address").citySelect({

@@ -36,15 +36,25 @@ class  DoctorController extends Controller{
             redirect(CONTROLLER.'/register', 2, '页面跳转中...');
         }
 
+
         if(!empty($_POST)){
-            $Patient = new \Home\Model\PatientModel(); // 实例化 Patient对象
+
+            $Study = new \Home\Model\StudyModel(); // 实例化 Patient对象
             //$Patient->getByPhoneNumber();
-            $z = $Patient->create($_POST,1);
-            if($z){
-                $this->success('新增成功', 'myStudy');
+
+            if(!$Study->create($_POST, 1)){
+                echo $Study->getError();
             }
             else{
-                $this->error('新增成功', 'myStudy');
+                $Study -> badResponse = implode(',', $_POST['badResponse']);
+                $z = $Study->add();
+
+                if($z){
+                    $this->success('新增成功', 'myStudy');
+                }
+                else{
+                    $this->error('新增成功', 'myStudy');
+                }
             }
 
         }
@@ -64,15 +74,25 @@ class  DoctorController extends Controller{
         $token_data = file_get_contents($get_code_url);
 
         $token = json_decode($token_data, TRUE);
-        echo "<hr>";
         $token['appid'] = appId;
         //$param = file_get_contents(OAURL, false, stream_context_create($opts));
         session('token',$token); //保存授权信息
-        var_dump(session('token'), true);
+        //var_dump(session('token'), true);
 
 
         if(!empty($_POST)){
-            
+
+            $Doctor = new \Home\Model\DoctorModel(); // 实例化 Patient对象
+            //$Patient->getByPhoneNumber();
+
+            $Doctor->create($_POST, 1);
+            $z = $Doctor->add();
+            if($z){
+                $this->success('新增成功', 'myStudy');
+            }
+            else{
+                $this->error('新增成功', 'myStudy');
+            }
         }
         else{
             $this -> display();

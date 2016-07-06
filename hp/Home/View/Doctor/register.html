@@ -47,7 +47,7 @@
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 5px rgba(59, 180, 242, .3)
         }
 
-        #datetimepicker5.am-bluecolor, #city.am-bluecolor {
+        #birthday.am-bluecolor, #address.am-bluecolor {
             background-color: #4CB0E6;
             color: #BCE1F6;
         }
@@ -56,6 +56,10 @@
             background-color: #4CB0E6;
             border-color: #3bb4f2;
             color: #BCE1F6;
+        }
+
+        #birthday, #cureDate{
+            color: #555;
         }
 
     </style>
@@ -76,14 +80,14 @@
 
     <div class="am-g">
         <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-            <form method="post" class="am-form am-form-horizontal">
+            <form method="post" id="register" name="register" class="am-form am-form-horizontal">
                 <fieldset>
 
                     <div class="am-form-group">
                         <div class="am-u-lg-12">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-phone am-icon-fw"></i></span>
-                                <input type="text" class="am-form-field" placeholder="手机号">
+                                <input type="text" class="am-form-field" id="phoneNumber" name="phoneNumber" placeholder="手机号">
                             </div>
                         </div>
                     </div>
@@ -92,7 +96,7 @@
                         <div class="am-u-lg-12">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-                                <input type="text" class="am-form-field" placeholder="输入您的姓名">
+                                <input type="text" class="am-form-field" id="realName" name="realName" placeholder="输入您的姓名">
                             </div>
                         </div>
                     </div>
@@ -102,24 +106,24 @@
                         <div class="am-u-lg-12">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-comment am-icon-fw"></i></span>
-                                <input type="text" class="am-form-field" placeholder="验证码">
+                                <input type="text" class="am-form-field" name="msgCode" id="msgCode" placeholder="验证码">
                 <span class="am-input-group-btn">
-                  <button class="am-btn am-btn-default" type="button">获取验证码</button>
+                  <button id="submit" class="am-btn am-btn-default" type="button">获取验证码</button>
                 </span>
                             </div>
                         </div>
                     </div>
 
                     <div class="am-form-group">
-                        <label for="doc-ipt-3-a" class="am-u-sm-3 am-form-label">性别</label>
+                        <label class="am-u-sm-3 am-form-label">性别</label>
 
                         <div class="am-u-sm-7">
                             <label class="am-radio-inline">
-                                <input type="radio" id="doc-ipt-3-a" value="" name="docInlineRadio"> 男
+                                <input type="radio" name="sex" checked="true" value="0"> 男
                                 <i class="am-icon-male am-icon-fw"></i>
                             </label>
                             <label class="am-radio-inline">
-                                <input type="radio" name="docInlineRadio"> 女
+                                <input type="radio" name="sex" value="1"> 女
                                 <i class="am-icon-female am-icon-fw"></i>
                             </label>
                         </div>
@@ -129,41 +133,41 @@
                     </div>
 
                     <div class="am-form-group">
-                        <label for="doc-ipt-birthday-1" class="am-u-sm-4 am-form-label">出生日期:</label>
+                        <label for="birthday" class="am-u-sm-4 am-form-label">出生日期:</label>
                         <div class="am-u-sm-8">
-                            <input id="datetimepicker5" type="text" class="am-form-field am-bluecolor"
-                                   placeholder="yyyy-mm-dd" data-am-datepicker required/>
+                            <input id="birthday" name="birthday" type="text" class="am-form-field" placeholder="yyyy-mm-dd" data-am-datepicker required  readonly/>
                         </div>
 
                     </div>
 
                     <div class="am-form-group">
                         <label for="doc-ipt-birthday-1" class="am-u-sm-12 am-form-label">所在医院:</label>
+                        <div id="address">
+                            <div class="am-u-sm-4">
+                                <select class="prov" id="province" name="province"></select><span class="am-form-caret"></span>
+                            </div>
+                            <div class="am-u-sm-4">
+                                <select class="city" id="city" name="city" disabled="disabled"></select><span class="am-form-caret"></span>
+                            </div>
+                            <div class="am-u-sm-4">
+                                <select class="dist" id="district" name="district" disabled="disabled"></select><span class="am-form-caret"></span>
+                            </div>
 
-                        <div id="city">
-                            <div class="am-u-sm-4">
-                                <select class="prov"></select><span class="am-form-caret"></span>
-                            </div>
-                            <div class="am-u-sm-4">
-                                <select class="city" disabled="disabled"></select><span class="am-form-caret"></span>
-                            </div>
-                            <div class="am-u-sm-4">
-                                <select class="dist" disabled="disabled"></select><span class="am-form-caret"></span>
-                            </div>
                         </div>
                         <div class="am-u-sm-12" style="padding-top: 5px;">
-                            <input type="text" class="am-form-field" placeholder="请输入医院名称">
+                            <input type="text" id="hospital" name="hospital" class="am-form-field" placeholder="请输入医院名称">
                         </div>
                     </div>
 
                     <div class="am-form-group">
-                        <label for="doc-select-1" class="am-u-sm-3 am-form-label">职称</label>
+                        <label for="title" class="am-u-sm-3 am-form-label">职称</label>
                         <div class="am-u-sm-6">
-                            <select id="doc-select-1">
-                                <option value="option1">主任医师</option>
-                                <option value="option2">副主任医师</option>
-                                <option value="option3">主治医师</option>
-                                <option value="option3">住院医师</option>
+                            <select id="title" name="title">
+                                <option value="">请选择</option>
+                                <option value="0">主任医师</option>
+                                <option value="1">副主任医师</option>
+                                <option value="2">主治医师</option>
+                                <option value="3">住院医师</option>
                             </select>
                             <span class="am-form-caret"></span>
                         </div>
@@ -172,9 +176,9 @@
                     </div>
 
                     <div class="am-form-group">
-                        <label for="doc-ipt-desease-1" class="am-u-sm-3 am-form-label">邮箱:</label>
+                        <label for="mail" class="am-u-sm-3 am-form-label">邮箱:</label>
                         <div class="am-u-sm-9">
-                            <input type="text" class="" id="doc-ipt-desease-1" placeholder="请输入邮箱">
+                            <input type="text" class="" id="mail" name="mail" placeholder="请输入邮箱">
                         </div>
 
 
@@ -182,10 +186,10 @@
 
                     <div class="am-form-group">
                         <div class="am-u-sm-12">
-                            <label for="doc-ta-1">个人简介</label>
+                            <label for="description">个人简介</label>
                         </div>
                         <div class="am-u-sm-12">
-                            <textarea class="" rows="5" id="doc-ta-1"></textarea>
+                            <textarea class="" rows="5" id="description" name="description"></textarea>
                         </div>
                     </div>
 
@@ -194,27 +198,25 @@
                             <button type="button" class="am-btn am-btn-default am-btn-sm">
                                 <i class="am-icon-cloud-upload"></i> 选择要上传的文件
                             </button>
-                            <input id="doc-form-file" type="file">
+                            <input id="docFile" name="docFile" type="file">
                         </div>
-
                         <div id="file-list"></div>
-
                     </div>
 
 
                     <div class="am-form-group">
-                        <label for="doc-ipt-birthday-1" class="am-u-sm-4 am-form-label">门诊日期:</label>
+                        <label for="cureTime" class="am-u-sm-4 am-form-label">门诊日期:</label>
                         <div class="am-u-sm-8">
-                            <input id="datetimepicker5" type="text" class="am-form-field am-bluecolor"
-                                   placeholder="yyyy-mm-dd" data-am-datepicker required/>
+                            <input id="cureTime" name="cureTime" type="text" class="am-form-field am-bluecolor"
+                                   placeholder="yyyy-mm-dd" data-am-datepicker required readonly/>
                         </div>
                     </div>
 
 
                     <div class="am-g">
                         <div class="am-u-sm-6 am-u-sm-centered">
-                            <input type="submit" name="" value="申请审核" class="am-btn am-btn-primary am-btn-sm am-fl"
-                                   onclick="register(); return false;"
+                            <input type="" name="" value="申请审核" class="am-btn am-btn-primary am-btn-sm am-fl"
+                                   onclick="reg(); return false;"
                                    style="width: 100%;">
 
                         </div>
@@ -223,10 +225,8 @@
                     </div>
 
                 </fieldset>
-
             </form>
             <hr>
-
         </div>
     </div>
 
@@ -236,11 +236,21 @@
 
 <script>
 
-    function register() {
-        alert("您的申请已经提交审核,请耐心等待!");
-        var path = "{$Think.const.CONTROLLER}"
-        window.location.href = path + "/myPatient";
+    function reg() {
+
+        var tourl = $("#register").attr("action");
+        var application = $("#register").serialize();
+        $.post("__URL__/register", application,function(data,textStatus){
+            alert(data);
+            location.href = data.url;
+        });
+
+
+//        alert("您的申请已经提交审核,请耐心等待!");
+//        var path = "{$Think.const.CONTROLLER}"
+//        window.location.href = path + "/register";
     }
+
 
 
 </script>
@@ -250,10 +260,12 @@
 <script type="text/javascript" src="{$Think.const.JS_URL}jquery.cityselect.js"></script>
 <script type="text/javascript">
     $(function () {
-        $("#city").citySelect({
+        $("#address").citySelect({
             nodata: "none",
             required: false
         });
+
+
     });
 
     $(function () {

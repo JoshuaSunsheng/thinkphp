@@ -546,10 +546,9 @@
 //        window.location.href = "{$Think.const.CONTROLLER}/appointment";
         var tourl = $("#application").attr("action");
         var application = $("#application").serialize();
-        alert(application);
         $.post("__URL__/application", application,function(data,textStatus){
-            alert(data);
-            alert(textStatus);
+            //alert(data.url);
+            location.href = data.url;
         });
 
     }
