@@ -38,11 +38,10 @@ class  DoctorController extends Controller{
 
 
         if(!empty($_POST)){
-
             $Study = new \Home\Model\StudyModel(); // 实例化 Patient对象
-            //$Patient->getByPhoneNumber();
 
             if(!$Study->create($_POST, 1)){
+                //echo $Study->_sql();//最后一条执行的Sql
                 echo $Study->getError();
             }
             else{
