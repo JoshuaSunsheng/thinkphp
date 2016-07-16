@@ -185,7 +185,10 @@
 </div>
 
 <div class="am-g">
-        <ul class="am-list">
+
+
+
+        <ul class="am-list" id="doctorList">
             <li id="1">
                 <div class="am-g">
 
@@ -227,6 +230,34 @@
             </li>
         </ul>
 
+    <ul data-am-widget="pagination" class="am-pagination am-pagination-select">
+
+
+        <li class="am-pagination-prev ">
+            <a href="#" class="" id="pre">上一页</a>
+        </li>
+
+
+        <li class="am-pagination-select">
+            <select>
+                <option value="#" class="">1
+                    /
+                </option>
+                <option value="#" class="">2
+                    /
+                </option>
+                <option value="#" class="">3
+                    /
+                </option>
+            </select>
+        </li>
+
+
+        <li class="am-pagination-next ">
+            <a href="#" class="" id="next">下一页</a>
+        </li>
+
+    </ul>
 
 </div>
 
@@ -418,6 +449,35 @@
             });
         });
     });
+
+    //pre page: doctor list
+    function pre(){
+        $.ajax({
+            type:"post", //请求的方式
+            dataType:"json", //数据的格式 建议大家使用json格式
+            data:{'curtheme':curtheme}, //请求的数据
+            url:"__URL__/appointment", //请求的url地址
+            success:function(data){ //请求成功时，处理返回来的数据
+//            var themeName=data.data; $("#curtheme").html(themeName);
+                alert("success");
+            }
+        })
+    }
+
+    //next page: doctor list
+    function next(){
+        $.ajax({
+            type:"post", //请求的方式
+            dataType:"json", //数据的格式 建议大家使用json格式
+            data:{'curtheme':curtheme}, //请求的数据
+            url:"__URL__/appointment", //请求的url地址
+            success:function(data){ //请求成功时，处理返回来的数据
+//            var themeName=data.data; $("#curtheme").html(themeName);
+                alert("success");
+            }
+        })
+    }
+
 
 
 
