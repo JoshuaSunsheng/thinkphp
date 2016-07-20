@@ -150,11 +150,11 @@
             background-color: #0e90d2;
         }
 
-        .am-g .am-list li button:active{
+        .am-g .am-list li button:focus{
             background-color: #0e90d2;
         }
 
-        .am-g .am-list li button:focus{
+        .am-g .am-list li button:active{
             background-color: #0e90d2;
         }
     </style>
@@ -169,89 +169,108 @@
     </div>
     <hr/>
 </div>
+
 <div class="am-g">
+
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered am-g-div-div">
-
-        <button type="button" class="am-btn am-btn-default am-radius">立即查询</button>
-
+        <button type="button" class="am-btn am-btn-default am-radius" id="search">立即查询</button>
     </div>
-    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered am-g-div-div">
 
-        <ol class="am-breadcrumb am-breadcrumb-slash">
-            <li><a href="#" class="am-btn am-radius">离你最近</a></li>
-            <li><a href="#" class="am-btn am-radius">区域查询</a></li>
-        </ol>
+    <!--<div class="am-u-lg-6 am-u-md-8 am-u-sm-centered am-g-div-div">-->
+    <!--<ol class="am-breadcrumb am-breadcrumb-slash" style="margin-bottom: 0rem; ">-->
+    <!--<li><a href="#" class="am-btn am-radius">离你最近</a></li>-->
+    <!--<li><a href="#" class="am-btn am-radius">区域查询</a></li>-->
+    <!--</ol>-->
+    <!--</div>-->
+
+</div>
+
+<div data-am-widget="tabs"
+     class="am-tabs am-tabs-d2">
+    <ul class="am-tabs-nav am-cf">
+        <li class="am-active" style="background-color: transparent;"><a href="[data-tab-panel-0]">区域查询</a></li>
+        <li class="" style="background-color: transparent;"><a href="[data-tab-panel-1]">离你最近</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+        <div data-tab-panel-0 class="am-tab-panel am-active">
+            <div id="address" class="am-u-lg-6 am-u-md-8 am-u-sm-centered am-g-div-div">
+                <div class="am-u-sm-4">
+                    <select class="prov" id="province" name="province"></select><span class="am-form-caret"></span>
+                </div>
+                <div class="am-u-sm-4">
+                    <select class="city" id="city" name="city" disabled="disabled"></select><span class="am-form-caret"></span>
+                </div>
+                <div class="am-u-sm-4">
+                    <select class="dist" id="district" name="district" disabled="disabled"></select><span class="am-form-caret"></span>
+                </div>
+            </div>
+        </div>
+        <div data-tab-panel-1 class="am-tab-panel ">
+            根据您所在的位置查找
+        </div>
     </div>
 </div>
 
-<div class="am-g">
+
+
+<div class="am-g" style="padding: 10px;">
 
 
 
         <ul class="am-list" id="doctorList">
-            <li id="1">
-                <div class="am-g">
+            <!--<li id="1">-->
+                <!--<div class="am-g">-->
 
-                <div class="am-u-sm-4 center-vertical">
-                    <button type="button" class="am-btn am-btn-default am-round am-sm-4-center"></button>
-                </div>
-                <div class="am-u-sm-8">
-                    <h1 style="margin-top: 15px;">医生介绍</h1>
-                    <span>医院名称 科室 职称</span><br />
-                    <span>门诊时间 医生介绍</span>
-                </div>
-                </div>
-            </li>
-            <li id="2">
-                <div class="am-g">
+                <!--<div class="am-u-sm-4 center-vertical">-->
+                    <!--<button type="button" class="am-btn am-btn-default am-round am-sm-4-center"></button>-->
+                <!--</div>-->
+                <!--<div class="am-u-sm-8">-->
+                    <!--<h1 style="margin-top: 15px;">医生介绍</h1>-->
+                    <!--<span>医院名称 科室 职称</span><br />-->
+                    <!--<span>门诊时间 医生介绍</span>-->
+                <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li id="2">-->
+                <!--<div class="am-g">-->
 
-                <div class="am-u-sm-4 center-vertical">
-                    <button type="button" class="am-btn am-btn-default am-round am-sm-4-center" ></button>
-                </div>
-                <div class="am-u-sm-8">
-                    <h1 style="margin-top: 15px;">医生介绍</h1>
-                    <span>医院名称 科室 职称</span><br />
-                    <span>门诊时间 医生介绍</span>
-                </div>
-                </div>
-            </li>
-            <li id="3">
-                <div class="am-g">
+                <!--<div class="am-u-sm-4 center-vertical">-->
+                    <!--<button type="button" class="am-btn am-btn-default am-round am-sm-4-center" ></button>-->
+                <!--</div>-->
+                <!--<div class="am-u-sm-8">-->
+                    <!--<h1 style="margin-top: 15px;">医生介绍</h1>-->
+                    <!--<span>医院名称 科室 职称</span><br />-->
+                    <!--<span>门诊时间 医生介绍</span>-->
+                <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li id="3">-->
+                <!--<div class="am-g">-->
 
-                <div class="am-u-sm-4 center-vertical">
-                    <button type="button" class="am-btn am-btn-default am-round am-sm-4-center" ></button>
-                </div>
-                <div class="am-u-sm-8">
-                    <h1 style="margin-top: 15px;">医生介绍</h1>
-                    <span>医院名称 科室 职称</span><br />
-                    <span>门诊时间 医生介绍</span>
-                </div>
-                </div>
-            </li>
+                <!--<div class="am-u-sm-4 center-vertical">-->
+                    <!--<button type="button" class="am-btn am-btn-default am-round am-sm-4-center" ></button>-->
+                <!--</div>-->
+                <!--<div class="am-u-sm-8">-->
+                    <!--<h1 style="margin-top: 15px;">医生介绍</h1>-->
+                    <!--<span>医院名称 科室 职称</span><br />-->
+                    <!--<span>门诊时间 医生介绍</span>-->
+                <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
         </ul>
 
     <ul data-am-widget="pagination" class="am-pagination am-pagination-select">
-
-
         <li class="am-pagination-prev ">
             <a href="#" class="" id="pre">上一页</a>
         </li>
 
-
-        <li class="am-pagination-select">
-            <select>
-                <option value="#" class="">1
-                    /
-                </option>
-                <option value="#" class="">2
-                    /
-                </option>
-                <option value="#" class="">3
-                    /
-                </option>
-            </select>
-        </li>
-
+        <!--<li class="am-pagination-select">-->
+            <!--<select>-->
+                <!--<option value="#" class="">1-->
+                    <!--/-->
+                <!--</option>-->
+            <!--</select>-->
+        <!--</li>-->
 
         <li class="am-pagination-next ">
             <a href="#" class="" id="next">下一页</a>
@@ -296,8 +315,9 @@
     <div class="am-modal-dialog">
         <div class="am-modal-hd">恭喜您!</div>
         <div class="am-modal-bd">
-            <p class="am-modal-bd-p">您的预约申请即将提交, 若成功提交,将发送一下信息. "已经发送给XX医院的XXX医师,
-                他/她将于近期通过短信的形式答复您的预约", 请注意查收</p>
+            <p class="am-modal-bd-p">您的预约申请即将提交, 若成功提交,将发送信息给您, 请注意查收</p>
+             <!--"已经发送给XX医院的XXX医师,-->
+            <!--他/她将于近期通过短信的形式答复您的预约"-->
         </div>
         <div class="am-modal-footer">
             <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -311,6 +331,8 @@
 
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="{$Think.const.JS_URL}jquery.min.js"></script>
+<script type="text/javascript" src="{$Think.const.JS_URL}jquery.cityselect.js"></script>
+
 <!--<![endif]-->
 <script src="{$Think.const.JS_URL}amazeui.min.js"></script>
 <script src="{$Think.const.JS_URL}amazeui.datetimepicker.js"></script>
@@ -321,6 +343,14 @@
             .on('changeDate', function(ev){
                 alert(ev.date)
             });
+
+
+    $(function () {
+        $("#address").citySelect({
+            nodata: "none",
+            required: false
+        });
+    });
 </script>
 
 <script>
@@ -388,8 +418,12 @@
 
 
 
-        $(".am-g .am-list li").on('click', function(){
+        $("#doctorList").on('click', 'li', function(){
             liObj = this;
+            jQuery(this).find('button').css('background-color', '#0e90d2');
+            jQuery(this).prevAll().find('button').css('background-color', '#c2c2c2');
+            jQuery(this).nextAll().find('button').css('background-color', '#c2c2c2');
+
         })
 
 
@@ -414,7 +448,6 @@
         }
 
 
-
         $('#doc-confirm-toggle').on('click', function () {
 
             if(!checkAppoint()){
@@ -428,10 +461,11 @@
                     var msg = '已经发送, 请等待';
 
                     var tourl = $("#appointment").attr("action");
-                    var id = liObj.id;
+                    var doctor_id = liObj.id;
+                    var patient_id = '2';
                     var beginDate = $("#beginDate").val();
                     var endDate = $("#endDate").val();
-                    $.post("__URL__/appointment", { id: id, beginDate: beginDate, endDate: endDate},function(data,textStatus){
+                    $.post("__URL__/appointment", { doctor_id: doctor_id, patient_id: patient_id, beginDate: beginDate, endDate: endDate},function(data,textStatus){
                         alert(textStatus);
                         console.log(liObj.id)
                         alert(liObj.id)
@@ -448,36 +482,92 @@
                 }
             });
         });
+
+
+
+        pageNo = 1;
+        maxResult = 1;
+        postAjax();
+
+        jQuery("#search").on('click', function(){
+            pageNo = 1;
+            postAjax();
+
+        })
+
+//pre page: doctor list
+        $("#pre").on('click', function(){
+            pageNo = pageNo - 1;
+            postAjax();
+        })
+
+        //next page: doctor list
+        $("#next").on('click', function(){
+            pageNo = pageNo + 1;
+            postAjax();
+
+        })
+
+        //翻页后台请求数据
+        function postAjax(){
+
+            var province = jQuery('#province').val();
+            var city = jQuery('#city').val();
+            var district = jQuery('#district').val();
+
+            $.ajax({
+                type:"post", //请求的方式
+                dataType:"json", //数据的格式 建议大家使用json格式
+                data:{'command':'next','pageNo':pageNo,'province':province,'city':city,'district':district,'isNearBy':false}, //请求的数据
+                url:"__URL__/fanye", //请求的url地址
+                success:function(data){ //请求成功时，处理返回来的数据
+                    maxResult = data.maxResult;
+                    displayDoctor(data.list);
+
+                }
+            })
+        }
+
+        //显示翻页内容
+        function displayDoctor(list){
+            var str = '';
+            list.forEach(function(e){
+                str = str + "<li id=\"" + e.id + "\">";
+                str = str + "<div class=\"am-g\">";
+                str = str + "<div class=\"am-u-sm-4 center-vertical\">";
+                str = str + "<button type=\"button\" class=\"am-btn am-btn-default am-round am-sm-4-center\"></button>";
+                str = str + "</div>";
+                str = str + "<div class=\"am-u-sm-8\">";
+                str = str + "<h1 style=\"margin-top: 15px;\">医生:" + e.realname +  "</h1>";
+                str = str + "<span>医院名称:"+ e.hospital +" 科室 职称</span><br />";
+                str = str + "<span>门诊时间 医生介绍</span>";
+                str = str + "</div>";
+                str = str + "</div>";
+                str = str + "</li>";
+            })
+            $("#doctorList").html(str);
+
+            if(pageNo == 1){
+                $('#pre').css('display', 'none');
+            }
+            else{
+                $('#pre').css('display', '');
+            }
+
+            if(parseInt((parseInt(maxResult)+2)/3) == pageNo){
+                $('#next').css('display', 'none');
+            }
+            else{
+                $('#next').css('display', '');
+            }
+        }
     });
 
-    //pre page: doctor list
-    function pre(){
-        $.ajax({
-            type:"post", //请求的方式
-            dataType:"json", //数据的格式 建议大家使用json格式
-            data:{'curtheme':curtheme}, //请求的数据
-            url:"__URL__/appointment", //请求的url地址
-            success:function(data){ //请求成功时，处理返回来的数据
-//            var themeName=data.data; $("#curtheme").html(themeName);
-                alert("success");
-            }
-        })
-    }
-
-    //next page: doctor list
-    function next(){
-        $.ajax({
-            type:"post", //请求的方式
-            dataType:"json", //数据的格式 建议大家使用json格式
-            data:{'curtheme':curtheme}, //请求的数据
-            url:"__URL__/appointment", //请求的url地址
-            success:function(data){ //请求成功时，处理返回来的数据
-//            var themeName=data.data; $("#curtheme").html(themeName);
-                alert("success");
-            }
-        })
-    }
-
+//
+//    $(function(){
+//
+//
+//    })
 
 
 

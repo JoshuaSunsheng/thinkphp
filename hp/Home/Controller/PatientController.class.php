@@ -37,7 +37,7 @@ class PatientController extends Controller{
         $token['appid'] = appId;
         //$param = file_get_contents(OAURL, false, stream_context_create($opts));
         session('token',$token); //保存授权信息
-        var_dump(session('token'), true);
+        //var_dump(session('token'), true);
 
     }
 
@@ -93,7 +93,6 @@ class PatientController extends Controller{
 
         //$Appointment = new \Home\Model\AppointmentModel(); // 实例化 Appointment对象
 
-
         $token = session('token');
 
         if (empty($token)) {
@@ -105,6 +104,10 @@ class PatientController extends Controller{
             $Appointment = new \Home\Model\AppointmentModel(); // 实例化 Patient对象
             //$Patient->getByPhoneNumber();
             $Appointment->create($_POST, 1);
+
+            \Think\Log::write("==========================================================");
+            $string=implode(' ',$_POST);
+            \Think\Log::write($string);
             $z = $Appointment->add();
             if ($z) {
                 $this->success('提交成功', 'appointment');
@@ -114,6 +117,44 @@ class PatientController extends Controller{
         } else {
             $this->display();
         }
+    }
+
+    public function fanye(){
+        //获取系统常量, 并分组
+        $token = session('token');
+
+        if (empty($token)) {
+            redirect(CONTROLLER . '/login', 2, '页面跳转中...');
+        }
+
+        $province = I('param.province');
+        $city = I('param.city');
+        $district = I('param.district');
+        $isNearBy = I('param.isNearBy');
+
+        if($province){
+            $map['province'] = $province;
+        }
+
+        if($city){
+            $map['city'] = $city;
+        }
+
+        if($district){
+            $map['district'] = $district;
+        }
+
+        //dump(I('param.'));
+        $start = I('param.pageNo') * 3 - 3;
+        $end = 3;
+        $Doctor = new \Home\Model\DoctorModel(); // 实例化 Patient对象
+        //$Patient->getByPhoneNumber();
+
+
+        $ret['list'] = $Doctor->where($map)->order('createTime')->limit($start,$end)->select();
+        $ret['maxResult'] = $Doctor->where($map)->count();
+
+        $this->ajaxReturn($ret, 'JSON');
 
     }
 
