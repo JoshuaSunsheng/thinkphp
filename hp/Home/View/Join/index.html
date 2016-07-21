@@ -111,37 +111,23 @@
     </div>
 </div>
 <!-- Fixed navbar -->
-<div class="row margin0">
+
+
+<div class="row margin0" style="margin-top: 40%;">
     <!-- center-->
+    <center><h1>注册入口</h1></center>
+
     <div>
-        <div class="col-xs-4 border_right border_bottom">
-            <a id="cloudbuy" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block ">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}pressCenter.png" width="60" height="60"></i>
-                <p class="color_grey font_size18"> 新闻中心</p>
+        <div class="col-xs-6">
+            <a id="patient" href="#" type="button" style="background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block ">
+                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}patient.png" width="96" height="96"></i>
+                <p class="color_grey font_size18"> 患者注册</p>
             </a>
         </div>
-        <div class="col-xs-4 border_right border_bottom">
-            <a id="purchase" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block ">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}academic.png" width="60" height="60"></i>
-                <p class="color_grey font_size18"> 学术讲坛</p>
-            </a>
-        </div>
-        <div class="col-xs-4 border_right border_bottom">
-            <a id="detail" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}question.png" width="60" height="60"></i>
-                <p class="color_grey font_size18"> 疑惑答疑</p>
-            </a>
-        </div>
-        <div class="col-xs-4 border_right border_bottom">
-            <a id="balance" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}chart.png" width="60" height="60"></i>
-                <p class="color_grey font_size18"> 图例显示</p>
-            </a>
-        </div>
-        <div class="col-xs-4 border_right border_bottom">
-            <a id="download" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}search.png" width="60" height="60"></i>
-                <p class="color_grey font_size18">耐药查询</p>
+        <div class="col-xs-6">
+            <a id="assistant" href="#" type="button" style="background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block ">
+                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}assistant.png" width="96" height="96"></i>
+                <p class="color_grey font_size18"> 医生注册</p>
             </a>
         </div>
 
@@ -173,12 +159,10 @@
         href_pre = "https://open.weixin.qq.com/connect/oauth2/authorize"+ "?appid=" +appid+"&redirect_uri=" + href + "/wechat/"
         href_suffix = "?appid=" + appid + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
         //href2 = "https://open.weixin.qq.com/connect/oauth2/authorize"+ "?appid=" +appid+"&redirect_uri=" + href + "/wechat/tehuigou/withdrawl.htm?appid=" + appid + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
-//        jQueryf("#cloudbuy").attr("href", href_pre + "yungou/index.htm" + href_suffix);
-//        jQueryf("#purchase").attr("href", href_pre + "service/dFPay.htm" + href_suffix);
-//        jQueryf("#detail").attr("href", href_pre + "service/dFtradelist.htm" + href_suffix);
-//        jQueryf("#balance").attr("href", href_pre + "service/dFsearch.htm" + href_suffix);
-//        jQueryf("#download").attr("href", "https://m.dianpayer.com/wechat/about/download.htm");
-//        jQueryf("#info").attr("href", "https://m.dianpayer.com/wechat/about/limition.htm");
+        //jQueryf("#patient").attr("href", href_pre + "yungou/index.htm" + href_suffix);
+        jQueryf("#patient").attr("href", "__URL__/../Patient/login");
+        jQueryf("#assistant").attr("href", "__URL__/../Doctor/register");
+
     });
 </script>
 </body>
