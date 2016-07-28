@@ -14,8 +14,8 @@ required:必选项
 (function($){
 	$.fn.citySelect=function(settings){
 		if(this.length<1){return;};
-		var url = "http://localhost:8888/thinkphp/"
-		var city_url = url + "hp/public/js/";
+		var url = citySelect_url;
+		var city_url = url + "hp/Public/js/";
 		// 默认值
 		settings=$.extend({
 			url:city_url + "city.min.js",

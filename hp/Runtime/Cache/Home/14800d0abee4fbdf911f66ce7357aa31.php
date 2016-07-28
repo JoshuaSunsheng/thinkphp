@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Login Page | Amaze UI Example</title>
+    <title>Login Page | hp</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -91,7 +91,7 @@
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">基本信息</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
 
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="baseInfo" name="baseInfo" class="am-form am-form-horizontal">
             <fieldset>
 
                 <div class="am-form-group">
@@ -106,10 +106,10 @@
 
                     <div class="am-u-sm-3">
                         <select id="times" name="times" style="font-size: 1.4rem;" class="am-form-horizontal">
-                            <option value="option1">1</option>
-                            <option value="option2">2</option>
-                            <option value="option3">3</option>
-                            <option value="option3">>3</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">>3</option>
                         </select>
                     </div>
                     <label for="doc-select-10" class="am-u-sm-3 am-form-label" style="line-height: 33px; height: 33px; padding-top: 0;">次治疗</label>
@@ -130,10 +130,10 @@
                     <label class="am-u-sm-3 am-form-label">性别:</label>
                     <div class="am-u-sm-9">
                         <label class="am-radio-inline">
-                            <input type="radio" value="" name="sex"> 男
+                            <input type="radio" value="" name="sex" value="0" checked="true"> 男
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="sex"> 女
+                            <input type="radio" name="sex" value="0"> 女
                         </label>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                 <div class="am-form-group">
                     <label for="nationality" class="am-u-sm-3 am-form-label">民族:</label>
                     <div class="am-u-sm-9">
-                        <select id="nationality">
+                        <select id="nationality" name="nationality">
                             <option value="0">汉族</option>
                             <option value="1">壮族</option>
                             <option value="2">满族</option>
@@ -170,7 +170,7 @@
                 <div class="am-form-group">
                     <label for="occupation" class="am-u-sm-3 am-form-label">职业:</label>
                     <div class="am-u-sm-4">
-                        <select id="occupation">
+                        <select id="occupation" name="occupation">
                             <option value="0">无职业</option>
                             <option value="1">工人</option>
                             <option value="2">务农</option>
@@ -181,7 +181,7 @@
                         </select>
                     </div>
                     <div class="am-u-sm-5">
-                        <input type="text" class="" id="otheroccupation" placeholder="其它,请说明">
+                        <input type="text" class="" id="otheroccupation" name="otheroccupation" placeholder="其它,请说明">
                     </div>
                 </div>
 
@@ -200,7 +200,7 @@
                         </select>
                     </div>
                     <div class="am-u-sm-6" style="padding-top: 5px;">
-                        <input type="text" class="" id="othergastroscope" placeholder="其它,请说明">
+                        <input type="text" class="" id="othergastroscope" name="othergastroscope" placeholder="其它,请说明">
                     </div>
                 </div>
 
@@ -217,12 +217,6 @@
                             <select class="dist" disabled="disabled" id="district" name="district"></select><span class="am-form-caret"></span>
                         </div>
                     </div>
-                    <!--<div class="am-u-sm-6">-->
-                        <!--<input type="text" class="" id="doc-ipt-desease-1" placeholder="省、市(地区)">-->
-                    <!--</div>-->
-                    <!--<div class="am-u-sm-4">-->
-                        <!--<input type="text" class="" id="doc-ipt-desease-1" placeholder="县(区)">-->
-                    <!--</div>-->
 
                 </div>
 
@@ -230,13 +224,13 @@
                     <label class="am-u-sm-12 am-form-label">患者HP根除治疗医院:</label>
                     <div class="am-u-sm-12">
                         <label class="am-radio-inline">
-                            <input type="radio" value="" name="inclination"> 一般
+                            <input type="radio" value="0" name="inclination"> 一般
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="inclination"> 病情需要
+                            <input type="radio" value="1" name="inclination"> 病情需要
                         </label>
                         <label class="am-radio-inline">
-                            <input type="radio" name="inclination"> 强烈要求
+                            <input type="radio" value="2" name="inclination"> 强烈要求
                         </label>
                     </div>
                 </div>
@@ -251,7 +245,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">实验诊断</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="experiment" name="experiment" class="am-form am-form-horizontal">
             <fieldset>
 
 
@@ -259,14 +253,14 @@
                     <label class="am-u-sm-12 am-form-label">HP呼气实验:</label>
                     <div class="am-u-sm-4">
                         <select id="carbonType" name="carbonType">
-                            <option value="option1">13C</option>
-                            <option value="option2">14C</option>
+                            <option value="13">13C</option>
+                            <option value="14">14C</option>
                        </select>
                         <span class="am-form-caret"></span>
                     </div>
                     <div class="am-u-sm-8">
                         <label class="am-radio-inline">
-                            <input type="radio" name="carbon"> 阴性
+                            <input type="radio" name="carbon" > 阴性
                         </label>
                         <label class="am-radio-inline">
                             <input type="radio" name="carbon"> 阳性
@@ -418,7 +412,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">治疗方案</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="cureMethod" name="cureMethod" class="am-form am-form-horizontal">
             <fieldset>
 
                 <div class="am-form-group" >
@@ -600,7 +594,7 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">疗效随访</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="result" name="result" class="am-form am-form-horizontal">
             <fieldset>
                 <div class="am-form-group">
                     <label class="am-u-sm-12 am-form-label">第一次:</label>
@@ -665,39 +659,39 @@
 <div class="am-g">
     <h1 style="  border-left: solid 5px #0D8083;padding-left: 1rem;color: #0D8083;">不良反应</h1>
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <form method="post" class="am-form am-form-horizontal">
+        <form method="post" id="response" name="response" class="am-form am-form-horizontal">
             <fieldset>
 
                 <div class="am-form-group">
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="0"> 头晕
+                        <input type="checkbox" name="badResponse[]" value="0"> 头晕
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="1"> 过敏
+                        <input type="checkbox" name="badResponse[]" value="1"> 过敏
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="2"> 食欲不振
+                        <input type="checkbox" name="badResponse[]" value="2"> 食欲不振
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="3"> 呕吐
+                        <input type="checkbox" name="badResponse[]" value="3"> 呕吐
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="4"> 恶心
+                        <input type="checkbox" name="badResponse[]" value="4"> 恶心
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="5"> 腹泻
+                        <input type="checkbox" name="badResponse[]" value="5"> 腹泻
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="6"> 胃不舒服
+                        <input type="checkbox" name="badResponse[]" value="6"> 胃不舒服
                     </label>
                     <label class="am-checkbox-inline">
-                        <input type="checkbox" value="7"> 其它
+                        <input type="checkbox" name="badResponse[]" value="7"> 其它
                     </label>
                 </div>
 
                 <div class="am-form-group">
                     <div class="am-u-sm-6 am-u-sm-centered">
-                        <button type="button" class="am-btn am-btn-default am-radius"
+                        <button type="button" class="am-btn am-btn-default am-radius" onclick="dataImp(); return false;"
                                 style="background: #0f8184; color: white;width: 100%;;">提交
                         </button>
 
@@ -722,6 +716,29 @@
 <script src="<?php echo (JS_URL); ?>amazeui.datetimepicker.js"></script>
 
 <script>
+
+
+    function dataImp() {
+
+        var tourl = $("#response").attr("action");
+        var baseInfo = $("#baseInfo").serialize();
+        var experiment = $("#experiment").serialize();
+        var cureMethod = $("#cureMethod").serialize();
+        var result = $("#result").serialize();
+        var response = $("#response").serialize();
+        response = response + "&" + baseInfo + "&" + experiment + "&" + cureMethod + "&" + result;
+        //lert (response);
+        $.post("/thinkphp/hp/index.php/Home/Doctor/dataImport", response,function(data,textStatus){
+            alert(data);
+            //location.href = data.url;
+        });
+
+
+//        alert("您的申请已经提交审核,请耐心等待!");
+//        var path = "<?php echo (CONTROLLER); ?>"
+//        window.location.href = path + "/register";
+    }
+
 
     $(function () {
         $("#address").citySelect({

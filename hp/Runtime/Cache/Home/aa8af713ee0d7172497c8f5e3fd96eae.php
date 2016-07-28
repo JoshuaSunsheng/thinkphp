@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>appointment | hp</title>
+    <title>Login Page | hp</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}amazeui.min.css"/>
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}app.css">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}amazeui.flat.min.css">
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>amazeui.min.css"/>
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>app.css">
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>amazeui.flat.min.css">
 
     <style>
         .header {
@@ -330,15 +330,12 @@
 <!--在这里编写你的代码-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="{$Think.const.JS_URL}jquery.min.js"></script>
-<script>
-    citySelect_url="{$Think.const.SITE_URL}";
-</script>
-<script type="text/javascript" src="{$Think.const.JS_URL}jquery.cityselect.js"></script>
+<script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo (JS_URL); ?>jquery.cityselect.js"></script>
 
 <!--<![endif]-->
-<script src="{$Think.const.JS_URL}amazeui.min.js"></script>
-<script src="{$Think.const.JS_URL}amazeui.datetimepicker.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.min.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.datetimepicker.js"></script>
 
 <script>
     $('#datetimepicker')
@@ -468,7 +465,7 @@
                     var patient_id = '2';
                     var beginDate = $("#beginDate").val();
                     var endDate = $("#endDate").val();
-                    $.post("__URL__/appointment", { doctor_id: doctor_id, patient_id: patient_id, beginDate: beginDate, endDate: endDate},function(data,textStatus){
+                    $.post("/thinkphp/hp/index.php/Home/Patient/appointment", { doctor_id: doctor_id, patient_id: patient_id, beginDate: beginDate, endDate: endDate},function(data,textStatus){
                         //alert(textStatus);
                         console.log(liObj.id)
                         //alert(liObj.id)
@@ -522,7 +519,7 @@
                 type:"post", //请求的方式
                 dataType:"json", //数据的格式 建议大家使用json格式
                 data:{'command':'next','pageNo':pageNo,'province':province,'city':city,'district':district,'isNearBy':false}, //请求的数据
-                url:"__URL__/fanye", //请求的url地址
+                url:"/thinkphp/hp/index.php/Home/Patient/fanye", //请求的url地址
                 success:function(data){ //请求成功时，处理返回来的数据
                     maxResult = data.maxResult;
                     displayDoctor(data.list);

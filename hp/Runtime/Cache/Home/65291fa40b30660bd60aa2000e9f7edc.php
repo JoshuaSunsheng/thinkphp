@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Login | hp</title>
+    <title>Login Page | hp</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}amazeui.min.css"/>
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>amazeui.min.css"/>
     <style>
         .header {
             text-align: center;
@@ -114,9 +114,9 @@
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="{$Think.const.JS_URL}jquery.min.js"></script>
+<script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
 <!--<![endif]-->
-<script src="{$Think.const.JS_URL}amazeui.min.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.min.js"></script>
 
 
 <script>
@@ -129,10 +129,10 @@
         }
 
         var tourl = $("#form").attr("action");
-        $.post("__URL__/verifyCode",{to:$("#phoneNumber").val(), msgCode:$("#msgCode").val()},function(data,textStatus){
+        $.post("/thinkphp/hp/index.php/Home/Patient/verifyCode",{to:$("#phoneNumber").val(), msgCode:$("#msgCode").val()},function(data,textStatus){
             if(data['rescode'] == "00" && textStatus == "success"){
                 alert("您的申请已经提交审核,请耐心等待!")
-                window.location.href = "{$Think.const.CONTROLLER}/agreement";
+                window.location.href = "<?php echo (CONTROLLER); ?>/agreement";
             }
             else{
                 alert(data['msg']);
@@ -151,7 +151,7 @@
             }
 
             var tourl = $("#form").attr("action");
-            $.post("__URL__/send",{to:$("#phoneNumber").val()},function(data,textStatus){
+            $.post("/thinkphp/hp/index.php/Home/Patient/send",{to:$("#phoneNumber").val()},function(data,textStatus){
                 alert(data);
             });
         })

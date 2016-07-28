@@ -15,9 +15,10 @@
 //define("SITE_URL","http://prttrtnwtc.proxy.qqbrowser.cc/thinkphp/");
 define("SITE_URL","http://localhost:8888/thinkphp/");
 //define("SITE_URL","http://localhost:80/thinkphp/");
-define("CSS_URL",SITE_URL."hp/public/css/"); //css
-define("IMG_URL",SITE_URL."hp/public/img/"); //img
-define("JS_URL",SITE_URL."hp/public/js/"); //js
+//define("SITE_URL","http://www.hatbrand.cn/thinkphp/");
+define("CSS_URL",SITE_URL."hp/Public/css/"); //css
+define("IMG_URL",SITE_URL."hp/Public/img/"); //img
+define("JS_URL",SITE_URL."hp/Public/js/"); //js
 
 //define("ADMIN_CSS_URL",SITE_URL."shop/public/Admin/css/"); //css
 //define("ADMIN_IMG_URL",SITE_URL."shop/public/Admin/img/"); //css

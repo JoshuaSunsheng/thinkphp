@@ -1,4 +1,4 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 
 <!DOCTYPE html>
 <!-- saved from url=(0048) -->
@@ -13,15 +13,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <title>咨询交流</title>
+    <title>主页</title>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{$Think.const.CSS_URL}planeui.css" />
-    <link href="{$Think.const.CSS_URL}bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo (CSS_URL); ?>planeui.css" />
+    <link href="<?php echo (CSS_URL); ?>bootstrap.css" rel="stylesheet">
     <!--<link href="tehuigou/css/style.css" rel="stylesheet">-->
     <!--<link rel="stylesheet" href="tehuigou/assets/css/app.css">-->
-    <link href="{$Think.const.CSS_URL}mbase.css" rel="stylesheet">
+    <link href="<?php echo (CSS_URL); ?>mbase.css" rel="stylesheet">
     <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}amazeui.min.css">
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>amazeui.min.css">
 
     <style>
         html, body {
@@ -116,31 +116,31 @@
     <div>
         <div class="col-xs-4 border_right border_bottom">
             <a id="cloudbuy" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block ">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}pressCenter.png" width="60" height="60"></i>
+                <i class="imooc-icon"><img src="<?php echo (IMG_URL); ?>pressCenter.png" width="60" height="60"></i>
                 <p class="color_grey font_size18"> 新闻中心</p>
             </a>
         </div>
         <div class="col-xs-4 border_right border_bottom">
             <a id="purchase" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block ">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}academic.png" width="60" height="60"></i>
+                <i class="imooc-icon"><img src="<?php echo (IMG_URL); ?>academic.png" width="60" height="60"></i>
                 <p class="color_grey font_size18"> 学术讲坛</p>
             </a>
         </div>
         <div class="col-xs-4 border_right border_bottom">
             <a id="detail" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}question.png" width="60" height="60"></i>
+                <i class="imooc-icon"><img src="<?php echo (IMG_URL); ?>question.png" width="60" height="60"></i>
                 <p class="color_grey font_size18"> 疑惑答疑</p>
             </a>
         </div>
         <div class="col-xs-4 border_right border_bottom">
             <a id="balance" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}chart.png" width="60" height="60"></i>
+                <i class="imooc-icon"><img src="<?php echo (IMG_URL); ?>chart.png" width="60" height="60"></i>
                 <p class="color_grey font_size18"> 图例显示</p>
             </a>
         </div>
         <div class="col-xs-4 border_right border_bottom">
             <a id="download" href="#" type="button" style=" background-color: #EBEBEB;border-color: #EBEBEB;" class="btn btn-default border_radius0 btn-block">
-                <i class="imooc-icon"><img src="{$Think.const.IMG_URL}search.png" width="60" height="60"></i>
+                <i class="imooc-icon"><img src="<?php echo (IMG_URL); ?>search.png" width="60" height="60"></i>
                 <p class="color_grey font_size18">耐药查询</p>
             </a>
         </div>
@@ -150,14 +150,14 @@
 
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="{$Think.const.JS_URL}jquery.min.js"></script>
+<script src="<?php echo (JS_URL); ?>jquery.min.js"></script>
 <!--<![endif]-->
 <!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="{$Think.const.JS_URL}amazeui.ie8polyfill.min.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
-<script src="{$Think.const.JS_URL}amazeui.min.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.min.js"></script>
 
 <!-- center -->
 <!-- JavaScript-->

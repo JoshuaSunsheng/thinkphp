@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="stylesheet" href="{$Think.const.CSS_URL}amazeui.min.css"/>
+    <link rel="stylesheet" href="<?php echo (CSS_URL); ?>amazeui.min.css"/>
 
     <style>
         .header {
@@ -240,14 +240,14 @@
 
         var tourl = $("#register").attr("action");
         var application = $("#register").serialize();
-        $.post("__URL__/register", application,function(data,textStatus){
-            //alert(data);
+        $.post("/thinkphp/hp/index.php/Home/Doctor/register", application,function(data,textStatus){
+            alert(data);
             location.href = data.url;
         });
 
 
 //        alert("您的申请已经提交审核,请耐心等待!");
-//        var path = "{$Think.const.CONTROLLER}"
+//        var path = "<?php echo (CONTROLLER); ?>"
 //        window.location.href = path + "/register";
     }
 
@@ -256,11 +256,8 @@
 </script>
 
 
-<script type="text/javascript" src="{$Think.const.JS_URL}jquery.min.js"></script>
-<script>
-    citySelect_url="{$Think.const.SITE_URL}";
-</script>
-<script type="text/javascript" src="{$Think.const.JS_URL}jquery.cityselect.js"></script>
+<script type="text/javascript" src="<?php echo (JS_URL); ?>jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo (JS_URL); ?>jquery.cityselect.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#address").citySelect({
@@ -281,8 +278,8 @@
         });
     });
 </script>
-<script src="{$Think.const.JS_URL}amazeui.min.js"></script>
-<script src="{$Think.const.JS_URL}amazeui.datetimepicker.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.min.js"></script>
+<script src="<?php echo (JS_URL); ?>amazeui.datetimepicker.js"></script>
 
 <script>
     $('#datetimepicker')
