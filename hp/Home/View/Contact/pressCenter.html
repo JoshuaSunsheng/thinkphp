@@ -55,6 +55,57 @@
 <body>
 <!-- 导航	-->
 
+<!-- Bootstrap 公众账号首页已经引入bootstrap.css-->
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+<script>
+    var jQueryf = jQuery.noConflict();
+    //mootools中嵌入jQuery 需要启动jQuery无冲突模式
+</script>
+<script type="text/javascript">
+    var url_head = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + "wx50601fae46ea8a28" + '&redirect_uri=https://m.dianpayer.com';
+    //var url_head = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx50601fae46ea8a28&redirect_uri=https://m.dianpayer.com';
+    var url_tail = '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+
+    (function () {
+
+        isBind = false;
+        //普通页面不需要验证
+        ret = [];
+        ret.resCode = "00";
+        if (ret) {
+            if (ret && ret.resCode == "00") {
+                isBind = true;
+            }
+            else {
+                Portal.error("请先app账号")
+                //alert(window.location.pathname)
+                window.location.href = "/wechat/register/wbinduser.htm?userName=" + ret.openId + "&appUserName=" + appid + "&backPath=" + window.location.pathname;
+            }
+        }
+
+        //使用js原始方法，勿改
+        var muObj = document.getElementById("index");
+        if (muObj) {
+            muObj.className = "active";
+        }
+
+        /* 注销 */
+        function doLogout() {
+            DWR.call("userService.logout", function () {
+                document.location.href = "../index.htm"
+            });
+        }
+    })(jQueryf)
+
+
+</script>
+
 <div id="preloader">
     <div class="pui-loading pui-loading-double-circle-rotation loder_status">
         <span></span>
@@ -67,70 +118,41 @@
 
     <div data-am-widget="intro" class="am-intro am-cf am-intro-default">
         <div class="am-intro-hd">
-            <h2 class="am-intro-title">区域负责人</h2>
+            <h2 class="am-intro-title">新闻中心</h2>
         </div>
 
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+            <h2 class="am-titlebar-title ">
+                HP临床诊治及学术研究最新成果
+            </h2>
+        </div>
         <div class="am-g am-intro-bd">
+            <div class="am-intro-center am-u-sm-12">
+                <p></p>
+            </div>
+        </div>
 
-            <section data-am-widget="accordion" class="am-accordion am-accordion-gapped"
-                     data-am-accordion='{  }'>
-                <dl class="am-accordion-item">
-                    <dt class="am-accordion-title">组长：xxx</dt>
-                    <dd class="am-accordion-bd am-collapse">
-                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                        <div class="am-accordion-content">专家介绍
-                        <br/>
-                            </div>
-                    </dd>
-                </dl>
-                <dl class="am-accordion-item">
-                    <dt class="am-accordion-title">副组长：</dt>
-                    <dd class="am-accordion-bd am-collapse">
-                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                        <div class="am-accordion-content">专家介绍
-                        <br/>
-                    </div>
-                    </dd>
-                </dl>
-                <dl class="am-accordion-item">
-                    <dt class="am-accordion-title">个体化用药方案技术顾问：</dt>
-                    <dd class="am-accordion-bd am-collapse">
-                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                        <div class="am-accordion-content">
-                            专家介绍
-                        </div>
-                    </dd>
-                </dl>
-                <dl class="am-accordion-item">
-                    <dt class="am-accordion-title">HP感染与相关疾病研究顾问：</dt>
-                    <dd class="am-accordion-bd am-collapse">
-                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                        <div class="am-accordion-content">
-                            专家介绍
-                        </div>
-                    </dd>
-                </dl>
 
-                <dl class="am-accordion-item">
-                    <dt class="am-accordion-title">病原学研究顾问：</dt>
-                    <dd class="am-accordion-bd am-collapse">
-                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                        <div class="am-accordion-content">
-                            专家介绍
-                        </div>
-                    </dd>
-                </dl>
 
-                <dl class="am-accordion-item">
-                    <dt class="am-accordion-title">生物计算及大数据分析技术顾问：</dt>
-                    <dd class="am-accordion-bd am-collapse">
-                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                        <div class="am-accordion-content">
-                            专家介绍
-                        </div>
-                    </dd>
-                </dl>
-            </section>
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+            <h2 class="am-titlebar-title ">
+                阶段性研究成果
+            </h2>
+        </div>
+        <div class="am-g am-intro-bd">
+            <div class="am-intro-center am-u-sm-12">
+            </div>
+        </div>
+
+
+        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+            <h2 class="am-titlebar-title ">
+                通知、公告
+            </h2>
+        </div>
+        <div class="am-g am-intro-bd">
+            <div class="am-intro-center am-u-sm-12">
+            </div>
         </div>
 
     </div>
@@ -156,10 +178,10 @@
         jQuery("#preloader").delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
     })
 
-    jQuery(document).ready(function () {
+    jQueryf(document).ready(function(){
         appid = "wx50601fae46ea8a28"
         href = "https://m.dianpayer.com";
-        href_pre = "https://open.weixin.qq.com/connect/oauth2/authorize" + "?appid=" + appid + "&redirect_uri=" + href + "/wechat/"
+        href_pre = "https://open.weixin.qq.com/connect/oauth2/authorize"+ "?appid=" +appid+"&redirect_uri=" + href + "/wechat/"
         href_suffix = "?appid=" + appid + "&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
 //        jQueryf("#cloudbuy").attr("href", href_pre + "yungou/index.htm" + href_suffix);
 //        jQueryf("#purchase").attr("href", href_pre + "service/dFPay.htm" + href_suffix);

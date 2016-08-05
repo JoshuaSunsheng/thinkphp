@@ -29,6 +29,7 @@ define("OAURL_CODE", "https://api.weixin.qq.com/sns/oauth2/access_token");
 define("OAURL_ACCESS_TOKEN", "https://api.weixin.qq.com/sns/oauth2/access_token");
 define("appId", "wxfb93bd95a58c1079");
 define("appsecret", "d4624c36b6795d1d99dcf0547af5443d");
+define("REDIRECT_URI", "d4624c36b6795d1d99dcf0547af5443d");
 
 // 检测PHP环境
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');

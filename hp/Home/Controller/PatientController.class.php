@@ -22,22 +22,45 @@ class PatientController extends Controller{
     function login(){
         //获取系统常量, 并分组
         //var_dump(get_defined_constants(true));
-        $this -> display();
 //        var_dump(get_defined_constants(true));
-        \Think\Log::record('record测试日志信息');
-        \Think\Log::write('write测试日志信息，这是警告级别，并且实时写入','WARN');
+        \Think\Log::record('login record');
+        \Think\Log::write('login write','WARN');
+
+        $token = session('token');
+
+        if(!$token){
+            $code = $_GET['code'];
+            $get_code_url = OAURL_ACCESS_TOKEN.'?appid='.appId.'&redirect_uri='.CONTROLLER.'/login'.'&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+            //https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+            \Think\Log::write('login write '.$get_code_url,'WARN');
+            redirect($get_code_url, 2, '页面跳转中...');
+
+            $token_data = file_get_contents($get_code_url);
+
+            $token = json_decode($token_data, TRUE);
+            if($token){
+                $token['appid'] = appId;
+                //$param = file_get_contents(OAURL, false, stream_context_create($opts));
+                session('token',$token); //保存授权信息
+                //var_dump(session('token'), true);
+                $this -> display();
+
+            }
+            else{
+                echo "获取异常";
+            }
+
+            echo "<hr>";
+
+        }
+        else{
+            \Think\Log::record('$token already has '.$token);
+            $this -> display();
+
+        }
 
         //微信网页授权登录获取code
-        $code = $_GET['code'];
-        $get_code_url = OAURL_ACCESS_TOKEN.'?appid='.appId.'&secret='.appsecret.'&code='.$code.'&grant_type=authorization_code';
-        $token_data = file_get_contents($get_code_url);
 
-        $token = json_decode($token_data, TRUE);
-        echo "<hr>";
-        $token['appid'] = appId;
-        //$param = file_get_contents(OAURL, false, stream_context_create($opts));
-        session('token',$token); //保存授权信息
-        //var_dump(session('token'), true);
 
     }
 
@@ -199,10 +222,10 @@ class PatientController extends Controller{
         $data['VALIDTIME'] = date ( "Y-m-d H:i:s", mktime ( date ( "H" ), date ( "i" ) + 5, date ( "s" ), date ( "m" ), date ( "d" ), date ( "Y" ) ) );
 
 
-        echo $authnum;
-        //$arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
-        //if (substr($arr,21,6) == 000000) {
-        if (true) {
+        //echo $authnum;
+        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
+        if (substr($arr,21,6) == 000000) {
+        //if (true) {
             //如果成功就，这里只是测试样式，可根据自己的需求进行调节
 
             echo "短信验证码已发送成功，请注意查收短信";
