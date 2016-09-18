@@ -162,12 +162,14 @@
 <div class="am-g">
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
         <div class="pCenter">
-            <p>项目背景, 目的, 内容, 过程, 期限, 参加所需要做
-                的工作, 收益, 风险, 不适, 保密, 自愿申明, 研究团
+            <p>项目背景, 目的</p>
+            <p>内容, 过程, 期限</p>
+            <p>参加所需要做的工作</p>
+            <p>收益, 风险, 不适</p>
+            <p></p>
+            <p>保密, 自愿申明, 研究团
                 队申明, 电子签名(签名照片)</p>
         </div>
-        <hr>
-        <br>
 
         <form method="post" class="am-form">
             <fieldset>
@@ -177,8 +179,28 @@
                         <input class="mui-checkbox" type="checkbox"> 知情同意
                     </label>
                 </div>
-                <hr>
-                <hr>
+
+                <div data-am-widget="intro" class="am-intro am-cf am-intro-default">
+
+                    <div class="am-g am-intro-bd">
+
+                        <section data-am-widget="accordion" class="am-accordion am-accordion-gapped"
+                                 data-am-accordion='{  }'>
+                            <dl class="am-accordion-item">
+                                <dt class="am-accordion-title">研究团队申明</dt>
+                                <dd class="am-accordion-bd am-collapse">
+                                    <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+                                    <div class="am-accordion-content">研究团队申明
+                                        <br/>
+                                    </div>
+                                </dd>
+                            </dl>
+
+                        </section>
+                    </div>
+
+                </div>
+
 
                 <div class="am-g">
                     <div class="am-u-sm-6 am-u-sm-centered">

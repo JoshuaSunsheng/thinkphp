@@ -106,7 +106,7 @@
                         <div class="am-u-lg-12">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-comment am-icon-fw"></i></span>
-                                <input type="text" class="am-form-field" name="msgCode" id="msgCode" placeholder="验证码">
+                                <input  name="msgCode" id="msgCode"  type="text" class="am-form-field" maxlength="6" placeholder="验证码">
                 <span class="am-input-group-btn">
                   <button id="submit" class="am-btn am-btn-default" type="button">获取验证码</button>
                 </span>
@@ -206,9 +206,25 @@
 
                     <div class="am-form-group">
                         <label for="cureTime" class="am-u-sm-4 am-form-label">门诊日期:</label>
+                        <!--<div class="am-u-sm-8">-->
+                            <!--<input id="cureTime" name="cureTime" type="text" class="am-form-field am-bluecolor"-->
+                                   <!--placeholder="yyyy-mm-dd" data-am-datepicker required readonly/>-->
+                        <!--</div>-->
                         <div class="am-u-sm-8">
-                            <input id="cureTime" name="cureTime" type="text" class="am-form-field am-bluecolor"
-                                   placeholder="yyyy-mm-dd" data-am-datepicker required readonly/>
+                            <select id="cureTime" name="cureTime">
+                                <option value="">请选择</option>
+                                <option value="0">周一上午</option>
+                                <option value="1">周一下午</option>
+                                <option value="2">周二上午</option>
+                                <option value="3">周二下午</option>
+                                <option value="4">周三上午</option>
+                                <option value="5">周三下午</option>
+                                <option value="6">周四上午</option>
+                                <option value="7">周四下午</option>
+                                <option value="8">周五上午</option>
+                                <option value="9">周五下午</option>
+                            </select>
+                            <span class="am-form-caret"></span>
                         </div>
                     </div>
 
@@ -232,29 +248,6 @@
 
 
 </div>
-
-
-<script>
-
-    function reg() {
-
-        var tourl = $("#register").attr("action");
-        var application = $("#register").serialize();
-        $.post("__URL__/register", application,function(data,textStatus){
-            //alert(data);
-            location.href = data.url;
-        });
-
-
-//        alert("您的申请已经提交审核,请耐心等待!");
-//        var path = "{$Think.const.CONTROLLER}"
-//        window.location.href = path + "/register";
-    }
-
-
-
-</script>
-
 
 <script type="text/javascript" src="{$Think.const.JS_URL}jquery.min.js"></script>
 <script>
@@ -290,6 +283,89 @@
             .on('changeDate', function (ev) {
                 alert(ev.date)
             });
+
+
+
+    function reg() {
+
+        if(!jQuery("#phoneNumber").val()){
+            alert("手机号码不能为空!");
+            return;
+        }
+
+        if (!$("#msgCode").val()) {
+            alert("验证码不能为空!");
+            return;
+        }
+
+        var tourl = $("#register").attr("action");
+        var application = $("#register").serialize();
+
+        $.post("__URL__/../Patient/verifyCode",{to:$("#phoneNumber").val(), msgCode:$("#msgCode").val()},function(data,textStatus){
+            if(data['rescode'] == "00" && textStatus == "success"){
+                alert("验证通过!")
+                $.post("__URL__/register", application,function(data,textStatus){
+                    //alert(data);
+                    location.href = data.url;
+                });
+//                window.location.href = "{$Think.const.CONTROLLER}/agreement";
+            }
+            else{
+                alert(data['msg']);
+            }
+        });
+
+//        var tourl = $("#register").attr("action");
+//        var application = $("#register").serialize();
+//        $.post("__URL__/register", application,function(data,textStatus){
+//            //alert(data);
+//            location.href = data.url;
+//        });
+
+
+
+//        alert("您的申请已经提交审核,请耐心等待!");
+//        var path = "{$Think.const.CONTROLLER}"
+//        window.location.href = path + "/register";
+    }
+
+
+    jQuery(function(){
+
+        //发送短信
+        $("#submit").click(function(){
+            if(!jQuery("#phoneNumber").val()){
+                alert("手机号码不能为空!");
+                return;
+            }
+
+            sendCode(this);
+
+            var tourl = $("#form").attr("action");
+            $.post("__URL__/../Patient/send",{to:$("#phoneNumber").val()},function(data,textStatus){
+                alert(data);
+            });
+        })
+
+
+        var wait = 60;
+        function sendCode(o) {
+            if (wait == 0) {
+                o.removeAttribute("disabled");
+                o.innerHTML = "获取验证码";
+                wait = 60;
+            } else {
+                o.setAttribute("disabled", true);
+                o.innerHTML = "重新发送(" + wait + ")";
+                wait--;
+                setTimeout(function () {
+                            sendCode(o)
+                        },
+                        1000)
+            }
+        }
+
+    })
 </script>
 
 </body>

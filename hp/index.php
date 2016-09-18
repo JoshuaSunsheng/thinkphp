@@ -19,6 +19,8 @@ define("SITE_URL","http://localhost:8888/thinkphp/");
 define("CSS_URL",SITE_URL."hp/Public/css/"); //css
 define("IMG_URL",SITE_URL."hp/Public/img/"); //img
 define("JS_URL",SITE_URL."hp/Public/js/"); //js
+define("I_URL",SITE_URL."hp/Public/i/"); //i
+define("DATA_URL",SITE_URL."hp/Public/data/"); //data
 
 //define("ADMIN_CSS_URL",SITE_URL."shop/public/Admin/css/"); //css
 //define("ADMIN_IMG_URL",SITE_URL."shop/public/Admin/img/"); //css
