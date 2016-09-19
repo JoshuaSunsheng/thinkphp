@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>登录 | hp 管理后台</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="{$Think.const.I_URL}favicon.png">
+  <link rel="stylesheet" href="{$Think.const.CSS_URL}amazeui.min.css"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>HP | 众包研究</h1>
+    <p></p>
+  </div>
+  <hr />
+  <br />
+  <br />
+  <br />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    <h3>登录</h3>
+    <hr>
+
+
+
+    <form method="post" id="loginForm" name="loginForm" class="am-form">
+      <label for="loginName">用户名:</label>
+      <input type="text" name="loginName" id="loginName" value="" placeholder="请输入您的用户名">
+      <br>
+      <label for="password">密码:</label>
+      <input type="password" name="password" id="password" value="" placeholder="请输入您的密码">
+      <br>
+      <label for="remember-me">
+        <input id="remember-me" type="checkbox">
+        记住密码
+      </label>
+
+      <input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr" style="background-color: white;
+    border-color: white;">
+
+      <br />
+
+      <div class="am-g">
+        <div class="am-u-sm-5 am-u-sm-centered">
+          <input type="submit" name="" value="登 录"
+                 class="am-btn am-btn-primary am-fl"
+                 onclick="login();return false;" style=" width: 100%;">
+        </div>
+      </div>
+      <div class="am-cf">
+        <!--<input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">-->
+
+      </div>
+    </form>
+    <br />
+    <hr>
+    <p>© 2016 AllMobilize, Inc. Licensed under MIT license.</p>
+  </div>
+</div>
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{$Think.const.JS_URL}jquery.min.js"></script>
+<!--<![endif]-->
+<script src="{$Think.const.JS_URL}amazeui.min.js"></script>
+
+<script>
+
+  function login() {
+
+    if(!jQuery("#loginName").val()){
+      alert("用户名不能为空!");
+      return;
+    }
+
+    if (!$("#password").val()) {
+      alert("密码不能为空!");
+      return;
+    }
+
+
+
+//    var tourl = $("#loginForm").attr("action");
+    $.post("__URL__/login",{loginName:$("#loginName").val(), password:$("#password").val()},function(data,textStatus){
+      if(data['rescode'] == "00" && textStatus == "success"){
+        alert("验证通过!")
+        window.location.href = "{$Think.const.CONTROLLER}/../Index/index";
+      }
+      else{
+        alert(data['msg']);
+      }
+    });
+  }
+
+</script>
+</body>
+</html>
