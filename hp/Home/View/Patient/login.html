@@ -137,7 +137,7 @@
         $.post("__URL__/verifyCode",{to:$("#phoneNumber").val(), msgCode:$("#msgCode").val()},function(data,textStatus){
             if(data['rescode'] == "00" && textStatus == "success"){
                 alert("验证通过!")
-                window.location.href = "{$Think.const.CONTROLLER}/agreement";
+                window.location.href = "{$Think.const.CONTROLLER}/agreement?phoneNumber=" + $("#phoneNumber").val();
             }
             else{
                 alert(data['msg']);
