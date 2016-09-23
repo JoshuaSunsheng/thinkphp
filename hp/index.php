@@ -13,7 +13,8 @@
 
 //定义css、img、js常量
 //define("SITE_URL","http://prttrtnwtc.proxy.qqbrowser.cc/thinkphp/");
-define("SITE_URL","http://localhost:8888/thinkphp/");
+//define("SITE_URL","http://localhost:8888/thinkphp/");
+define("SITE_URL","http://www.thinkphp.su:8888/thinkphp/");
 //define("SITE_URL","http://localhost:80/thinkphp/");
 //define("SITE_URL","http://www.hatbrand.cn/thinkphp/");
 define("CSS_URL",SITE_URL."hp/Public/css/"); //css
