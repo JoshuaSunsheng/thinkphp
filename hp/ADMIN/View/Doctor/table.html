@@ -146,21 +146,21 @@
               </tr>
               </thead>
               <tbody>
-              <volist name="data" id="patient">
+              <volist name="data" id="doctor">
 
               <tr>
                 <td><input type="checkbox"/></td>
-                <td>{$patient.id}</td>
-                <td><a href="#">{$patient.realname}</a></td>
-                <if condition="($patient.sex eq 0)">
+                <td>{$doctor.id}</td>
+                <td><a href="#">{$doctor.realname}</a></td>
+                <if condition="($doctor.sex eq 0)">
                   <td>男</td>
-                  <elseif condition="($patient.sex eq 1)"/>
+                  <elseif condition="($doctor.sex eq 1)"/>
                   <td>女</td>
                   <else/>
                   <td>未知</td>
                 </if>
-                <td class="am-hide-sm-only">{$patient.province}</td>
-                <td class="am-hide-sm-only">{$patient.createtime}</td>
+                <td class="am-hide-sm-only">{$doctor.province}</td>
+                <td class="am-hide-sm-only">{$doctor.createtime}</td>
                 <td>
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
@@ -201,13 +201,13 @@
               <!--</for>-->
             <!--</div>-->
             <div class="am-cf">
-              共 {$recordnum} 条记录
+              共 {$recordnum} 条记录{$pagenum}
               <div class="am-fr">
                 <div id="pages">
 
                 <ul class="am-pagination">
                   <li class="am-disabled"><a href="#">«</a></li>
-                    <for start="1" end="$pagenum" step="1" name="i">
+                    <for start="1" end="$pagenum+1" step="1" name="i">
                       <if condition="($i eq 1)">
                         <li class="am-active"><a onclick="Jumppage(this);" href="#">{$i}</a></li>
                         <else />
