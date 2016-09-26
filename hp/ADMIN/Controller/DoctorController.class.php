@@ -40,6 +40,38 @@ class  DoctorController extends Controller{
         $this->page = $page;
         $this->pagesize = $pagesize;
         $this->recordnum = $recordnum;
+        $this->title = "医生列表";
+
+        $this->display();
+    }
+
+
+/*
+ * 医生信息
+ * */
+    function form(){
+        $db=M("doctor");
+
+        \Think\Log::record('login record');
+        \Think\Log::write('login write','WARN');
+        //利用page函数。来进行自动的分页
+
+        if(isset($_GET['id'])){
+            $this->data = $db -> find($_GET('id'));
+            $this->retCode = "00";
+            $this->msg = "查找成功";
+
+        }
+        else{
+            $this->retCode = "01";
+            $this->msg = "未找到该信息";
+
+        }
+        \Think\Log::write('login write','WARN');
+//        $this->assign('data',$data);
+
+        $this->title = "医生信息";
+
         $this->display();
     }
 
