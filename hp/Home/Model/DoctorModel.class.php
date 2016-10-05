@@ -2,9 +2,9 @@
 
 
 namespace Home\Model;
-use Think\Model\RelationModel;
+use Think\Model;
 
-class DoctorModel extends RelationModel{
+class DoctorModel extends Model{
 //    protected $_link = array(
 //        'Doctor' => array(
 //            'mapping_type' => self::HAS_ONE,
