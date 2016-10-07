@@ -2,16 +2,27 @@
 
 
 namespace Home\Model;
-use Think\Model;
+use Think\Model\RelationModel;
 
-class DoctorModel extends Model{
-//    protected $_link = array(
-//        'Doctor' => array(
-//            'mapping_type' => self::HAS_ONE,
-//            'class_name' => 'Doctor',
-//            'mapping_name' => 'Doctors',
-//            'foreign_key' => 'userId',
-//            // 定义更多的关联属性
-//        ),
-//    );
+class DoctorModel extends RelationModel{
+    protected $_link = array(
+        'curetime' => array(
+            'mapping_type' => self::HAS_ONE,
+            'class_name' => 'dict_curetime',
+            'mapping_name' => 'curetimes',
+            'foreign_key' => 'id',
+            'as_fields' => 'title:curetime'
+
+            // 定义更多的关联属性
+        ),
+        'title' => array(
+            'mapping_type' => self::HAS_ONE,
+            'class_name' => 'dict_title',
+            'mapping_name' => 'titles',
+            'foreign_key' => 'id',
+            'as_fields' => 'title:title'
+
+            // 定义更多的关联属性
+        ),
+    );
 }
