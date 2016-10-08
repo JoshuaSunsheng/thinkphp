@@ -187,6 +187,9 @@ class PatientController extends Controller{
      * @throws \Org\Com\Exception
      */
     public function send(){
+
+        \Think\Log::write('send:', "INFO");
+
         //初始化必填
         $options['accountsid']='6c53057d22d325f222eb5d0188d38e89'; //填写自己的
         $options['token']='4f57071121447bf5af8182dc7a7c3db5'; //填写自己的
@@ -221,16 +224,12 @@ class PatientController extends Controller{
         //        $data['VALIDTIME'] = Date('Y-m-d H:i:s') ;
         $data['VALIDTIME'] = date ( "Y-m-d H:i:s", mktime ( date ( "H" ), date ( "i" ) + 5, date ( "s" ), date ( "m" ), date ( "d" ), date ( "Y" ) ) );
 
-
-        //echo $authnum;
-        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
-        if (substr($arr,21,6) == 000000) {
-        //if (true) {
+//        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
+//        if (substr($arr,21,6) == 000000) {
+        if (true) {
             //如果成功就，这里只是测试样式，可根据自己的需求进行调节
-
             echo "短信验证码已发送成功，请注意查收短信";
-
-                //$MSGCODE = M('MSGCODE');
+            \Think\Log::write('send '.$to.'验证码:'.$authnum, "INFO");
 
         }else{
             //如果不成功
@@ -240,6 +239,9 @@ class PatientController extends Controller{
         }
 
         $MSGCODE->data($data)->add();
+
+        \Think\Log::write('send end.', "INFO");
+
 
     }
 

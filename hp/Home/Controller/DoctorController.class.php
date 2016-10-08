@@ -64,8 +64,7 @@ class  DoctorController extends Controller{
 
     function register(){
 
-        \Think\Log::record('register--------------record测试日志信息');
-        \Think\Log::write('register---------------write测试日志信息，这是警告级别，并且实时写入','WARN');
+        \Think\Log::write('register begin:', "INFO");
 
         //微信网页授权登录获取code
         $code = $_GET['code'];
@@ -85,6 +84,8 @@ class  DoctorController extends Controller{
             //$Patient->getByPhoneNumber();
 
             $Doctor->create($_POST, 1);
+            $Doctor -> cureTime = implode(',', $_POST['cureTime']);
+
             $z = $Doctor->add();
             if($z){
                 $this->success('新增成功', 'myStudy');
@@ -96,5 +97,8 @@ class  DoctorController extends Controller{
         else{
             $this -> display();
         }
+
+        \Think\Log::write('register end.', "INFO");
+
     }
 }
