@@ -185,7 +185,7 @@
     });
   }
 
-  function PassAppointment(appointmentId) {
+  function passAppointment(appointmentId) {
 
     if (confirm("审核通过?")) {
       $.post("__URL__/passAppointment", {id: appointmentId}, function (data, textStatus) {
@@ -194,7 +194,7 @@
     }
   }
 
-  function CancelAppointment(appointmentId) {
+  function cancelAppointment(appointmentId) {
 
     if (confirm("审核失败?")) {
       $.post("__URL__/cancelAppointment", {id: appointmentId}, function (data, textStatus) {
