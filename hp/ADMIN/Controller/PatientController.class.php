@@ -11,13 +11,16 @@ namespace Admin\Controller;
 use Think\Controller;
 use Home\Model\PatientModel;
 
+//require '../../Common/Common/common.php';
 
 define(CONTROLLER, __CONTROLLER__);
 
-class  PatientController extends Controller{
+class  PatientController extends Controller
+{
 
 
-    function table($queryStr = "", $page = 1, $pagesize = 10){
+    function table($queryStr = "", $page = 1, $pagesize = 10)
+    {
 
         \Think\Log::write('login table:', "INFO");
 
@@ -29,7 +32,11 @@ class  PatientController extends Controller{
         $map['_complex'] = $where;
 
         //利用page函数。来进行自动的分页
-        $data = $db->page($page, $pagesize)
+        $data = $db->alias('a')
+            ->page($page, $pagesize)
+            ->join('__DICT_STATUS__ as status ON status.id = a.status')
+            ->field('a.*,a.status as statusCode,
+                 status.title as status')
             ->where($map)
             ->select();
         $recordnum = $db->page($page, $pagesize)
@@ -40,7 +47,7 @@ class  PatientController extends Controller{
         $pagenum = $recordnum / $pagesize;
         //如果不能整除，则自动加1页
         if ($pagenum % 1 !== 0) {
-            \Think\Log::write('login record pagenum: '.$pagenum, "INFO");
+            \Think\Log::write('login record pagenum: ' . $pagenum, "INFO");
             $pagenum = (int)$pagenum + 1;
         }
 
@@ -59,13 +66,14 @@ class  PatientController extends Controller{
     }
 
 
-    function form(){
+    function form()
+    {
 
         \Think\Log::write('login form:', "INFO");
         $db = new PatientModel();
 
         //利用page函数。来进行自动的分页
-        if(isset($_GET['patientId'])){
+        if (isset($_GET['patientId'])) {
             $map['a.id'] = $_GET['patientId'];
 
             $data = $db->alias('a')
@@ -96,18 +104,18 @@ class  PatientController extends Controller{
                 ->find();
 
             //前端radio显示封装数据, 第一项表示value为1时, 第二项表示value为0时
-            $this->sex = [$data['sex']=='1'?'checked':'', $data['sex']=='1'?'':'checked'];
-            $this->isbrithintown = [$data['isbrithintown']=='1'?'checked':'', $data['isbrithintown']=='1'?'':'checked'];
-            $this->isintown = [$data['isintown']=='1'?'checked':'', $data['isintown']=='1'?'':'checked'];
-            $this->iscancerfamily = [$data['iscancerfamily']=='1'?'checked':'', $data['iscancerfamily']=='1'?'':'checked'];
-            $this->isothercancer = [$data['isothercancer']=='1'?'checked':'', $data['isothercancer']=='1'?'':'checked'];
-            $this->ischeck = [$data['ischeck']=='1'?'checked':'', $data['ischeck']=='1'?'':'checked'];
-            $this->checkstatus = [$data['checkstatus']=='1'?'checked':'', $data['checkstatus']=='1'?'':'checked'];
-            $this->iscure = [$data['iscure']=='1'?'checked':'', $data['iscure']=='1'?'':'checked'];
-            $this->usedanalgesic = [$data['usedanalgesic']=='1'?'checked':'', $data['usedanalgesic']=='1'?'':'checked'];
-            $this->usedantiacid = [$data['usedantiacid']=='1'?'checked':'', $data['usedantiacid']=='1'?'':'checked'];
-            $this->knowrelation = [$data['knowrelation']=='1'?'checked':'', $data['knowrelation']=='1'?'':'checked'];
-            $this->inclination = [$data['inclination']=='1'?'checked':'', $data['inclination']=='1'?'':'checked'];
+            $this->sex = [$data['sex'] == '1' ? 'checked' : '', $data['sex'] == '1' ? '' : 'checked'];
+            $this->isbrithintown = [$data['isbrithintown'] == '1' ? 'checked' : '', $data['isbrithintown'] == '1' ? '' : 'checked'];
+            $this->isintown = [$data['isintown'] == '1' ? 'checked' : '', $data['isintown'] == '1' ? '' : 'checked'];
+            $this->iscancerfamily = [$data['iscancerfamily'] == '1' ? 'checked' : '', $data['iscancerfamily'] == '1' ? '' : 'checked'];
+            $this->isothercancer = [$data['isothercancer'] == '1' ? 'checked' : '', $data['isothercancer'] == '1' ? '' : 'checked'];
+            $this->ischeck = [$data['ischeck'] == '1' ? 'checked' : '', $data['ischeck'] == '1' ? '' : 'checked'];
+            $this->checkstatus = [$data['checkstatus'] == '1' ? 'checked' : '', $data['checkstatus'] == '1' ? '' : 'checked'];
+            $this->iscure = [$data['iscure'] == '1' ? 'checked' : '', $data['iscure'] == '1' ? '' : 'checked'];
+            $this->usedanalgesic = [$data['usedanalgesic'] == '1' ? 'checked' : '', $data['usedanalgesic'] == '1' ? '' : 'checked'];
+            $this->usedantiacid = [$data['usedantiacid'] == '1' ? 'checked' : '', $data['usedantiacid'] == '1' ? '' : 'checked'];
+            $this->knowrelation = [$data['knowrelation'] == '1' ? 'checked' : '', $data['knowrelation'] == '1' ? '' : 'checked'];
+            $this->inclination = [$data['inclination'] == '1' ? 'checked' : '', $data['inclination'] == '1' ? '' : 'checked'];
 
             $this->data = $data;
 //            $this->data = $db->relation(true)->find($_GET['patientId']);
@@ -115,13 +123,12 @@ class  PatientController extends Controller{
 
             $this->retCode = "00";
             $this->msg = "查找成功";
-        }
-        else{
+        } else {
             $this->retCode = "01";
             $this->msg = "未找到该信息";
 
         }
-        \Think\Log::write('login write','WARN');
+        \Think\Log::write('login write', 'WARN');
 //        var_dump($this, true);
 
         $this->display();
@@ -129,11 +136,34 @@ class  PatientController extends Controller{
 
 
     //删除患者
-    function deletePatient($id){
-        \Think\Log::record('deletePatient record:'.$id);
+    function deletePatient($id)
+    {
+        \Think\Log::record('deletePatient record:' . $id);
         $db = new PatientModel();
         $db->where('id=' . $id)->delete();
         \Think\Log::record('deletePatient record end');
+    }
+
+    //审核通过患者
+    function passPatient($id)
+    {
+        \Think\Log::record('passPatient record:' . $id);
+        $db = new PatientModel();
+//        $db->where('id=' . $id)->delete();
+        $db->where('id=' . $id)->setField('status', PATIENT_PASS);
+        \Think\Log::record('passPatient record end');
+    }
+
+
+    //审核失败患者
+    function cancelPatient($id)
+    {
+        \Think\Log::record('cancelPatient record:' . $id);
+        $db = new PatientModel();
+        $db->where('id=' . $id)->setField('status',PATIENT_FAIL);
+
+//        $db->where('id=' . $id)->delete();
+        \Think\Log::record('cancelPatient record end');
     }
 
 }

@@ -23,9 +23,7 @@ define("JS_URL",SITE_URL."hp/Public/js/"); //js
 define("I_URL",SITE_URL."hp/Public/i/"); //i
 define("DATA_URL",SITE_URL."hp/Public/data/"); //data
 
-//define("ADMIN_CSS_URL",SITE_URL."shop/public/Admin/css/"); //css
-//define("ADMIN_IMG_URL",SITE_URL."shop/public/Admin/img/"); //css
-//define("ADMIN_JS_URL",SITE_URL."shop/public/Admin/js/"); //css
+
 
 // 微信使用
 define("OAURL_CODE", "https://api.weixin.qq.com/sns/oauth2/access_token");

@@ -21,7 +21,7 @@
   <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">预约</strong> / <small>Appointment</small></div>
       </div>
 
       <hr>
@@ -73,7 +73,9 @@
                 <th class="table-title">患者</th>
                 <th class="table-title">医生</th>
                 <th class="table-date am-hide-sm-only">就诊时间</th>
-                <th class="table-set">操作</th>
+                <th class="table-title">状态</th>
+
+                <!--<th class="table-set">操作</th>-->
               </tr>
               </thead>
               <tbody>
@@ -84,15 +86,24 @@
                 <td>{$appointment.patientname}</td>
                 <td>{$appointment.doctorname}</td>
                 <td class="am-hide-sm-only">{$appointment.begindate}-{$appointment.enddate}</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <!--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>-->
-                      <!--<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>-->
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick='CancelAppointment("{$appointment.id}")'><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
+                <td class="am-hide-sm-only">{$appointment.status}</td>
+
+                <!--<td>-->
+                  <!--<div class="am-btn-toolbar">-->
+                    <!--<div class="am-btn-group am-btn-group-xs">-->
+                      <!--<eq name="appointment.statuscode" value="0">-->
+                        <!--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"-->
+                                <!--onclick='PassAppointment("{$appointment.id}")'><span class="am-icon-pencil-square-o"></span> 审核通过-->
+                        <!--</button>-->
+                        <!--<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"-->
+                                <!--onclick='CancelAppointment("{$appointment.id}")'><span class="am-icon-pencil-square-o"></span>-->
+                          <!--审核失败-->
+                        <!--</button>-->
+                        <!--<else/>-->
+                        <!--已处理-->
+                      <!--</eq>-->
+                  <!--</div>-->
+                <!--</td>-->
               </tr>
               </volist>
 
@@ -174,17 +185,23 @@
     });
   }
 
-  //删除预约
+  function PassAppointment(appointmentId) {
+
+    if (confirm("审核通过?")) {
+      $.post("__URL__/passAppointment", {id: appointmentId}, function (data, textStatus) {
+        Jumppage();
+      });
+    }
+  }
+
   function CancelAppointment(appointmentId) {
 
-    if (confirm("是否要删除?")) {
-      $.post("__URL__/delete", {id: appointmentId}, function (data, textStatus) {
+    if (confirm("审核失败?")) {
+      $.post("__URL__/cancelAppointment", {id: appointmentId}, function (data, textStatus) {
 //      alert(data);
         Jumppage();
       });
     }
-
-
   }
 </script>
 </body>

@@ -41,7 +41,7 @@ class  LoginController extends Controller{
         //echo $code;
         $User = M("User");
         //echo $Msgcode;
-        $data = $User->where('phoneNumber=%s', $loginName)->order('CREATETIME desc')->limit(1)->find();
+        $data = $User->where('phoneNumber="%s"', $loginName)->order('CREATETIME desc')->limit(1)->find();
         //echo $data;
 //        var_dump($data);
         if(!$data){

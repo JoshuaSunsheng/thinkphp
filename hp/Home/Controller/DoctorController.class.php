@@ -15,15 +15,6 @@ define(CONTROLLER, __CONTROLLER__);
 class  DoctorController extends Controller{
 
 
-
-
-    function myPatient(){
-        //获取系统常量, 并分组
-        //var_dump(get_defined_constants(true));
-
-        $this -> display();
-    }
-
     function myStudy(){
         $this -> display();
     }
@@ -100,5 +91,26 @@ class  DoctorController extends Controller{
 
         \Think\Log::write('register end.', "INFO");
 
+    }
+
+
+
+    function myPatient($queryStr = '', $page = 1, $pagesize = 10){
+        \Think\Log::write('myPatient appointment:', "INFO");
+
+        $DoctorController = new \Admin\Controller\DoctorController();
+
+        list($data, $recordnum, $pagenum) = $DoctorController->innerAppointment($queryStr, $page, $pagesize);
+
+//        var_dump($data, true);
+        $this->data = $data;
+        $this->pagenum = $pagenum;
+        $this->page = $page;
+        $this->pagesize = $pagesize;
+        $this->recordnum = $recordnum;
+        $this->title = "预约信息";
+
+        $this->display();
+        \Think\Log::write('myPatient end', "INFO");
     }
 }

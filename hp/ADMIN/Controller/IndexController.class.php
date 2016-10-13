@@ -22,6 +22,12 @@ class  IndexController extends Controller
             $loginName = session('loginName'); //授权信息
             if ($loginName) {
                 var_dump($loginName);
+
+
+                $dbDoctor = D('Doctor');
+                $dbPatient = D('Patient');
+                $this->doctorTotal = $dbDoctor->count();
+                $this->patientTotal = $dbPatient->count();
                 $this->display();
             } else {
                 redirect(CONTROLLER . '/../Login/login', 2, '您已经登出, 请重新登录');

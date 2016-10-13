@@ -74,6 +74,7 @@
                 <th class="table-type">性别</th>
                 <th class="table-author am-hide-sm-only">省份</th>
                 <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-date am-hide-sm-only">状态</th>
                 <th class="table-set">操作</th>
               </tr>
               </thead>
@@ -93,12 +94,25 @@
                 </if>
                 <td class="am-hide-sm-only">{$patient.province}</td>
                 <td class="am-hide-sm-only">{$patient.createtime}</td>
+                <td class="am-hide-sm-only">{$patient.status}</td>
                 <td>
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
+                      <eq name="patient.statuscode" value="0">
+
+                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"
+                                onclick='PassDoctor("{$patient.id}")'><span class="am-icon-pencil-square-o"></span> 审核通过
+                        </button>
+                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
+                                onclick='CancelDoctor("{$patient.id}")'><span class="am-icon-pencil-square-o"></span>
+                          审核失败
+                        </button>
+                        <else/>
+                        已处理
+                      </eq>
                       <!--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>-->
                       <!--<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>-->
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick='CancelDoctor("{$patient.id}")'><span class="am-icon-trash-o"></span> 删除</button>
+                      <!--<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick='CancelDoctor("{$patient.id}")'><span class="am-icon-trash-o"></span> 删除</button>-->
                     </div>
                   </div>
                 </td>
@@ -209,17 +223,29 @@
 
 
 
-  function CancelDoctor(patientId) {
+  function PassDoctor(patientId) {
 
-    if (confirm("是否要删除?")) {
-      $.post("__URL__/deletePatient", {id: patientId}, function (data, textStatus) {
+    if (confirm("审核通过?")) {
+      $.post("__URL__/passPatient", {id: patientId}, function (data, textStatus) {
 //      alert(data);
         Jumppage();
       });
     }
-
-
   }
+
+
+
+  function CancelDoctor(patientId) {
+
+    if (confirm("审核失败?")) {
+      $.post("__URL__/cancelPatient", {id: patientId}, function (data, textStatus) {
+//      alert(data);
+        Jumppage();
+      });
+    }
+  }
+
+
 </script>
 </body>
 </html>

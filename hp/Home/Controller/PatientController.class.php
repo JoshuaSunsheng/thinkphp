@@ -224,9 +224,9 @@ class PatientController extends Controller{
         //        $data['VALIDTIME'] = Date('Y-m-d H:i:s') ;
         $data['VALIDTIME'] = date ( "Y-m-d H:i:s", mktime ( date ( "H" ), date ( "i" ) + 5, date ( "s" ), date ( "m" ), date ( "d" ), date ( "Y" ) ) );
 
-//        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
-//        if (substr($arr,21,6) == 000000) {
-        if (true) {
+        $arr=$ucpass->templateSMS($appId,$to,$templateId,$param);
+        if (substr($arr,21,6) == 000000) {
+//        if (true) {
             //如果成功就，这里只是测试样式，可根据自己的需求进行调节
             echo "短信验证码已发送成功，请注意查收短信";
             \Think\Log::write('send '.$to.'验证码:'.$authnum, "INFO");
