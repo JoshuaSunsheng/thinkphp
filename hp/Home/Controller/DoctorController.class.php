@@ -9,6 +9,9 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Home\Model\AppointmentModel;
+use Home\Model\DoctorModel;
+
 
 define(CONTROLLER, __CONTROLLER__);
 
@@ -93,8 +96,6 @@ class  DoctorController extends Controller{
 
     }
 
-
-
     function myPatient($queryStr = '', $page = 1, $pagesize = 10){
         \Think\Log::write('myPatient appointment:', "INFO");
 
@@ -112,5 +113,29 @@ class  DoctorController extends Controller{
 
         $this->display();
         \Think\Log::write('myPatient end', "INFO");
+    }
+
+
+    //审核通过预约
+    function passAppointment($id)
+    {
+        \Think\Log::write('passAppointment record:'.$id, "INFO");
+        $db = new AppointmentModel();
+        $map['id']=array('in',$id);
+//        $db->where('id=' . $id)->delete();
+        $db->where($map)->setField('status',APPOINTMENT_PASS);
+        \Think\Log::write('passAppointment record end', "INFO");
+    }
+
+    //审核失败预约
+    function cancelAppointment($id)
+    {
+        \Think\Log::write('cancelAppointment record:'.$id, "INFO");
+        $db = new AppointmentModel();
+        $map['id']=array('in',$id);
+
+//        $db->where('id=' . $id)->delete();
+        $db->where($map['id'])->setField('status',APPOINTMENT_FAIL);
+        \Think\Log::write('cancelAppointment record end', "INFO");
     }
 }

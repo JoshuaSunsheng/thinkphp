@@ -120,8 +120,8 @@
         <div class="am-btn-group am-btn-group-xs">
         <!--<button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>-->
         <!--<button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>-->
-        <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核通过</button>
-        <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 审核失败</button>
+        <button type="button" class="am-btn am-btn-default" onclick='PassAppointment("{$appointment.id}")'><span class="am-icon-archive"></span> 审核通过</button>
+        <button type="button" class="am-btn am-btn-default" onclick='CancelAppointment("{$appointment.id}")'><span class="am-icon-trash-o"></span> 审核失败</button>
         </div>
         </div>
     </div>
@@ -130,7 +130,7 @@
             <thead>
             <tr>
                 <th class="table-check"><input type="checkbox"/></th>
-                <th>编号</th>
+                <!--<th>编号</th>-->
                 <th>姓名</th>
                 <th>性别</th>
                 <th>年龄</th>
@@ -143,35 +143,56 @@
             </thead>
             <tbody>
             <volist name="data" id="patient">
+                <if condition="($patient.statuscode eq 0)">
 
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>{$patient.id}</td>
-                <td>{$patient.patientname}</td>
-                <if condition="($patient.sex eq 0)">
-                    <td>男</td>
-                    <elseif condition="($patient.sex eq 1)"/>
-                    <td>女</td>
-                    <else/>
-                    <td>未知</td>
-                </if>
-                <td>{$patient.birthday|birthday}</td>
-                <if condition="($patient.ischeck eq 1)">
-                    <td>{$patient.checkstatus}</td>
-                    <else/>
-                    <td>未检查</td>
-                </if>
+                    <tr>
+                        <td><input type="checkbox" value="{$patient.id}"/></td>
+                        <!--<td>{$patient.id}</td>-->
+                        <td>{$patient.patientname}</td>
+                        <if condition="($patient.sex eq 0)">
+                            <td>男</td>
+                            <elseif condition="($patient.sex eq 1)"/>
+                            <td>女</td>
+                            <else/>
+                            <td>未知</td>
+                        </if>
+                        <td>{$patient.birthday|birthday}</td>
+                        <if condition="($patient.ischeck eq 1)">
+                            <td>{$patient.checkstatus}</td>
+                            <else/>
+                            <td>未检查</td>
+                        </if>
 
-                <td>未培养</td>
-                <td>{$patient.status}</td>
-                <td>{$patient.notify}</td>
-                <td>不纳入研究</td>
-                <!--<td>1<i class="am-icon-close"></i></td>-->
-            </tr>
+                        <td>未培养</td>
+                        <td>{$patient.status}</td>
+                        <td>{$patient.notify}</td>
+                        <td>不纳入研究</td>
+                        <!--<td>1<i class="am-icon-close"></i></td>-->
+                    </tr>
+                </if>
             </volist>
-
             </tbody>
         </table>
+
+    </div>
+
+    <div class="am-cf" id="tableFooter">
+        <div class="am-fr">
+            <div id="pages">
+
+                <ul class="am-pagination">
+                    <li class="am-disabled"><a href="#">«</a></li>
+                            <li class="am-active"><a onclick="Jumppage(this);" href="#">上一页</a></li>
+                            <li><a onclick="Jumppage(this);" href="#">下一页</a></li>
+
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <!--<li><a href="#">4</a></li>-->
+                    <!--<li><a href="#">5</a></li>-->
+                    <li><a href="#">»</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -190,7 +211,7 @@
 
 <div class="am-g am-g-fixed am-margin-top">
     <h5 class="am-am-g-myStudy-h5">有XX位HP感染病人，已确认您的就诊预约, 点击显示：</h5>
-    <div class="am-u-sm-12 am-center" style="font-size: 1.4rem;">
+    <div class="am-u-sm-12 am-center" style="font-size: 1.4rem;" id="tablepasslist">
         <table class="am-table">
             <thead>
             <tr>
@@ -202,12 +223,12 @@
             </thead>
             <tbody>
             <volist name="data" id="patient">
-                <if condition="($patient.statusCode eq 2)">
+                <if condition="($patient.statuscode eq 2)">
                 <tr>
                     <td>{$patient.patientname}</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                    <td>{$patient.begindate|substr=5,11}~{$patient.enddate|substr=5,11}</td>
+                    <td>否</td>
+                    <td>是</td>
                 </tr>
                 </if>
             </volist>
@@ -263,14 +284,17 @@
         $("<div></div>").load(url,{queryStr:queryStr,page:pageNum,pagesize:pagesize},function(){
 
             var data = $(this).find("#tablelist").html();
+            var passdata = $(this).find("#tablepasslist").html();
             $('#tablelist').html(data);
+            $('#tablepasslist').html(passdata);
 
             $(this).remove();
         });
     }
 
-    function PassAppointment(appointmentId) {
+    function PassAppointment() {
 
+        var appointmentId = $("tbody :checked").map(function(){return $(this).val()}).get().join(",")
         if (confirm("审核通过?")) {
             $.post("__URL__/passAppointment", {id: appointmentId}, function (data, textStatus) {
                 Jumppage();
@@ -278,8 +302,8 @@
         }
     }
 
-    function CancelAppointment(appointmentId) {
-
+    function CancelAppointment() {
+        var appointmentId = $("tbody :checked").map(function(){return $(this).val()}).get().join(",")
         if (confirm("审核失败?")) {
             $.post("__URL__/cancelAppointment", {id: appointmentId}, function (data, textStatus) {
 //      alert(data);
@@ -287,6 +311,20 @@
             });
         }
     }
+
+    jQuery("tbody").on("click", "tr",function(e){
+        if (e.target.type === 'checkbox') {
+            return;
+        }
+        var input = $(this).find("input");
+        if ($(input).attr("checked")) {
+            $(input).removeAttr("checked");
+        }
+        else {
+            $(input).attr("checked", true);
+        }
+//        $(this).siblings().first().find("input").attr('checked',true)
+    })
 </script>
 </body>
 </html>
