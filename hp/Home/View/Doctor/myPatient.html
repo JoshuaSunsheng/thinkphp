@@ -171,25 +171,29 @@
                     </tr>
                 </if>
             </volist>
+            <tr>
+                <td class="table-check"><input type="checkbox"/></td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>呼气结果</td>
+                <td>培养结果</td>
+                <td> 预约状态</td>
+                <td>通知结果</td>
+                <td>不纳入研究</td>
+            </tr>
             </tbody>
         </table>
 
     </div>
 
-    <div class="am-cf" id="tableFooter">
+    <div class="am-cf">
         <div class="am-fr">
-            <div id="pages">
-
+            <div>
                 <ul class="am-pagination">
-                    <li class="am-disabled"><a href="#">«</a></li>
-                            <li class="am-active"><a onclick="Jumppage(this);" href="#">上一页</a></li>
-                            <li><a onclick="Jumppage(this);" href="#">下一页</a></li>
-
-                    <!--<li><a href="#">2</a></li>-->
-                    <!--<li><a href="#">3</a></li>-->
-                    <!--<li><a href="#">4</a></li>-->
-                    <!--<li><a href="#">5</a></li>-->
-                    <li><a href="#">»</a></li>
+                    <li class="am-disabled"></li>
+                            <li class="am-active"><a onclick="Jumppage('tablelist');" href="javascript:void(0)" style="background: #0f8184; color: white">加载更多</a></li>
+                    <li></li>
                 </ul>
             </div>
         </div>
@@ -232,10 +236,31 @@
                 </tr>
                 </if>
             </volist>
+            <tr style="display:none">
+                <td>姓名</td>
+                <td>预约时间</td>
+                <td>已就诊</td>
+                <td>列入研究对象</td>
+            </tr>
             </tbody>
         </table>
     </div>
 
+
+    <div class="am-cf">
+        <div class="am-fr">
+            <div>
+                <ul class="am-pagination">
+                    <li class="am-disabled"></li>
+                    <if condition="($pagenum neq $page)">
+                        <li class="am-active"><a onclick="Jumppage('tablepasslist');" href="javascript:void(0)" style="background: #0f8184; color: white">加载更多</a></li>
+
+                    </if>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -273,23 +298,32 @@
         });
     });
 
+    var pageNum = [];
+    pageNum["tablelist"] = 1;
+    pageNum["tablepasslist"] = 1;
+    Jumppage("tablelist");
+    Jumppage("tablepasslist");
 
-    function Jumppage(page){
-        var pagesize = 10;
-        var pageNum = 1;
+    function Jumppage(type){
+        var pagesize = 3;
         var url = '__SELF__';
-        var queryStr = $('#queryStr').val()
-        if(page)  pageNum = page.innerHTML;
+//        var queryStr = $('#queryStr').val()
+        $("<div></div>").load(url,{queryStr:type,page:pageNum[type],pagesize:pagesize},function(){
+            var hasTbody = $('#'+type + " tbody tr").length;
+            if(hasTbody){
+                var data = $(this).find("#"+type + " tbody").html();
+                $('#'+type + " tbody").append(data);
+            }
+            else{
+                var data = $(this).find("#"+type).html();
+                $('#'+type).html(data);
 
-        $("<div></div>").load(url,{queryStr:queryStr,page:pageNum,pagesize:pagesize},function(){
-
-            var data = $(this).find("#tablelist").html();
-            var passdata = $(this).find("#tablepasslist").html();
-            $('#tablelist').html(data);
-            $('#tablepasslist').html(passdata);
-
+            }
+            pageNum[type]=pageNum[type]+1;
             $(this).remove();
         });
+
+
     }
 
     function PassAppointment() {
@@ -297,7 +331,8 @@
         var appointmentId = $("tbody :checked").map(function(){return $(this).val()}).get().join(",")
         if (confirm("审核通过?")) {
             $.post("__URL__/passAppointment", {id: appointmentId}, function (data, textStatus) {
-                Jumppage();
+               Jumppage("tablelist");
+               Jumppage("tablepasslist");
             });
         }
     }
@@ -307,7 +342,7 @@
         if (confirm("审核失败?")) {
             $.post("__URL__/cancelAppointment", {id: appointmentId}, function (data, textStatus) {
 //      alert(data);
-                Jumppage();
+               Jumppabge("tablelist");
             });
         }
     }
@@ -323,7 +358,6 @@
         else {
             $(input).attr("checked", true);
         }
-//        $(this).siblings().first().find("input").attr('checked',true)
     })
 </script>
 </body>

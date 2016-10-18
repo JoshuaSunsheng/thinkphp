@@ -199,6 +199,7 @@ class  DoctorController extends Controller
         //使用map作为查询条件,混合模式
         $where['patient.realname'] = array('like', '%' . $queryStr . '%');
         $where['doctor.realname'] = array('like', '%' . $queryStr . '%');
+        $where['a.status'] = array('like', '%' . $queryStr . '%');   //当myPatient调用时需要区分出审核通过和待审核的患者,该条件不影响原有查询
         $where['_logic'] = 'or';
         $map['_complex'] = $where;
 //        dump($map);

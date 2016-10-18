@@ -52,6 +52,10 @@ class  DoctorController extends Controller{
 
         }
         else{
+
+
+            $this->data = "";
+            $this->studyNo = build_order_no();
             $this -> display();
         }
     }
@@ -96,13 +100,27 @@ class  DoctorController extends Controller{
 
     }
 
-    function myPatient($queryStr = '', $page = 1, $pagesize = 10){
+    function myPatient($queryStr = '', $page = 1, $pagesize = 5){
         \Think\Log::write('myPatient appointment:', "INFO");
 
         $DoctorController = new \Admin\Controller\DoctorController();
+//        $queryStr = "tablelist";
+        if($queryStr == "tablelist") {
+            $status=0 ;
+        }
+        else if($queryStr == "tablepasslist"){
+            $status=2;
+        }
+        else{
+            $status="";
+            \Think\Log::write('myPatient appointment 这里不显示内容', "INFO");
+        }
+        \Think\Log::write('myPatient appointment:'.$queryStr, "INFO");
+        \Think\Log::write('myPatient appointment:'.$status, "INFO");
 
-        list($data, $recordnum, $pagenum) = $DoctorController->innerAppointment($queryStr, $page, $pagesize);
-
+        if($queryStr){
+            list($data, $recordnum, $pagenum) = $DoctorController->innerAppointment($status, $page, $pagesize);
+        }
 //        var_dump($data, true);
         $this->data = $data;
         $this->pagenum = $pagenum;
