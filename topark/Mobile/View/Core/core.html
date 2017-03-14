@@ -1,0 +1,93 @@
+<include file="Public:header" />
+<body>
+
+<include file="Public:nav" />
+    <style>
+        .content {
+            width: 50%;
+            max-width: 1200px;
+
+        }
+
+        .flexslider {
+            height: 386.75px;
+        }
+
+        .slides li {
+            height: 386.75px;
+        }
+
+        .Jf-01 {
+            padding-top: 42px;
+        }
+
+        .Jf-04 p {
+            color: #fff;
+            margin-top: 295px;
+        }
+
+    </style>
+</head>
+
+
+<!--高效-->
+<div style="background:url({$IMG_URL}topcar-bg.png) repeat-x;width: 640px;height: 680px;" class="Public">
+    <div class="container R30Car R30-01">
+        <img src="{$IMG_URL}R30/core01.png" class="wow bounceInLeft">
+        <h3 class="wow fadeInDown" >高效 </h3>
+        <p class="wow fadeInDown">节约用地、适用广泛、使用率高</p>
+    </div>
+</div>
+
+<!--灵活-->
+<div style="background:url({$IMG_URL}R30/R30-bg01.png) center no-repeat; height:675px; background-size: cover;" class="Public">
+    <div class="container R30Car R30-01">
+        <img src="{$IMG_URL}R30/core02.png" class="wow bounceInLeft">
+        <h3 class="wow fadeInDown" style="color: #838383;">灵活 </h3>
+        <p class="wow fadeInDown">独立运行、故障率低、维保简单</p>
+
+    </div>
+</div>
+
+<!--便捷-->
+<div style="background:url({$IMG_URL}R30/R30-bg02.png) center no-repeat; background-size: cover;    width: 640px;
+    height: 680px;" class="Public">
+    <div class="container R30Car R30-01">
+        <img src="{$IMG_URL}R30/core03.png" class="wow bounceInLeft">
+        <h3 class="wow fadeInDown" style="color: #838383;">便捷 </h3>
+        <p class="wow fadeInDown">直停侧进、停取方便、智能控制</p>
+    </div>
+</div>
+
+<!--环保-->
+<div style="background:url({$IMG_URL}R30/R30-bg03.jpg) center no-repeat; background-size: cover;    width: 640px;
+    height: 680px;" class="Public">
+    <div class="container R30Car R30-01">
+        <img src="{$IMG_URL}R30/core04.png" class="wow bounceInLeft">
+        <h3 class="wow fadeInDown" style="color: #FFFFFF;" >环保 </h3>
+        <p class="wow fadeInDown" style="color: #FFFFFF;">单个电机、节约能源、减少排放</p>
+    </div>
+</div>
+
+<!--预约销售-->
+<div class="Jf-yuyue container" id="order">
+    <form action="/order/save" method="post" id="yuyueForm">
+        <input type="hidden" id="carType" name="carType" value="A08" />
+        <h3>预约销售</h3>
+        <ul>
+            <li>
+                <input type="text" id="name" name="name"  placeholder="我们的邮箱" required="true" value="info@toparkchina.com"/>
+            </li>
+
+        </ul>
+        <p class="tip tip_hidden" id="tip"></p>
+        <a  id="submit_btn" style=" display: block;  color: #000000;  text-decoration: none;   line-height: 70px;"
+            class="Submit" href="Mailto:info@toparkchina.com?CC=info@toparkchina.com&BCC=info@toparkchina.com&Subject=Hello&Body=你好">给我发邮件</a>
+    </form>
+</div>
+
+<!--底部导航-->
+<include file="Public:footer" />
+
+</body>
+</html>

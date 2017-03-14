@@ -1,0 +1,21 @@
+<php>
+
+$tmpl="__ROOT__/";
+
+$PublicDir="";
+
+    if (!isMobile()) {
+        $PublicDir =  "Home/";
+    }
+    else{
+        $PublicDir =  "Mobile/";
+    }
+
+    $CSS_URL = $tmpl."Public/".$PublicDir."statics/front/css/";
+    $IMG_URL = $tmpl."Public/".$PublicDir."statics/front/img/";
+    $JS_URL = $tmpl."Public/".$PublicDir."statics/front/js/";
+    $I_URL = $tmpl."Public/".$PublicDir."statics/front/i/";
+    $VIEW_URL = $tmpl."Public/".$PublicDir."statics/front/i/";
+    $DATA_URL = $tmpl."Public/".$PublicDir."statics/front/data/";
+
+</php>

@@ -1,0 +1,36 @@
+<include file="Public:header" />
+<body>
+
+<include file="Public:nav" />
+
+<div>
+    <section class="container about" id="company" style="margin-bottom:50px"><!--公司简介-->
+        <div class="Public" style="">
+            <div class="container content">
+                <img src="{$IMG_URL}product/TK1.0_five.png" class="img_logo"  style="width: 100%">
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <hr>
+
+</div>
+
+<script type="text/javascript">
+    function iFrameHeight() {
+        var ifm= document.getElementById("iframepage");
+        var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+        if(ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+        }
+    }
+
+</script>
+
+<!--底部导航-->
+<include file="Public:footer" />
+
+</body>
+</html>

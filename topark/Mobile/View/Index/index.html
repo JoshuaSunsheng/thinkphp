@@ -1,0 +1,513 @@
+
+<include file="Public:header" />
+
+<style>
+    /*三种车型*/
+    .row { overflow: hidden; padding-top: 61px; padding-bottom: 60px; }
+    .row .rowLeft { float: left; display: block }
+    .row .rowRight { float: right; display: block; }
+    .row .jieshao {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 20px;
+    }
+    .jieshao>div { height: 172px; }
+    .jieshao h2 {
+        font-size: 1.4em;
+        color: #4b4b4b;
+        line-height: 1.6em;
+        font-weight: bold;
+    }
+    .jieshao p {
+        font-size: 1.0em;
+        color: #838383;
+        line-height: 1.4em;
+        margin-top: 0.8em;
+    }
+
+    .rowLeft,  .rowLeft img{
+        width: 100%;
+    }
+
+    .row .jieshao .detail { font-size:14px; display: block; width: 180px; height: 38px; background-color: #ebebeb; color: #4b4b4b; line-height: 38px; padding-left: 12px; background-image: url(../img/index/arrow.png); background-repeat: no-repeat; background-position: 155px center; -webkit-transition: all 0.1s ease; -moz-transition: all 0.1s ease; -o-transition: all 0.1s ease; transition: all 0.1s ease; }
+    .row .jieshao .detail:hover { background-color: rgba(0,0,0,0.15); background-position: 159px center; }
+
+    .rowLast {
+        margin-bottom: 102px;
+        margin-top: 61px;
+    }
+
+    /*.rowLast>ul>li { display: block; width: 274px; height: 263px; float: left; background-image: url(../img/index/icon02.png)/!*tpa=http://skio.cn/{$IMG_URL}index/icon02.png*!/; background-repeat: no-repeat; }*/
+    .rowLast > ul > li {
+        margin-left:50px;
+        margin-right:50px;
+        margin-bottom:30px;
+        display: block;
+        width: 540px;
+        height: 325px;
+        float: left;
+    }
+
+    .notice {
+        background-position: 0 2px;
+    }
+
+    .battery {
+        background-position: 0 -261px;
+        margin: 0 44px;
+    }
+
+    .contact {
+        background-position: 0 -524px;
+    }
+
+
+    .notice p, .battery p, .contact p {
+        border-top: 3px solid black;
+        border-color: #1FB3A9;
+        padding-top: 0.1em;
+        font-weight: bold;
+        color: grey;
+    }
+
+    .notice h3, .battery h3, .contact h3 {
+        margin-top: 0.1em;
+        font-size: 1.4em;
+        color: #878787;
+        font-weight: bold;
+
+    }
+
+    .notice h2, .battery h2, .contact h2 {
+        color: #5E5E5E;
+    }
+
+    .rowLast > ul > li {
+        padding: 16px 4px 15px 4px;
+    }
+
+
+    .rowLast >ul >li > a {
+        margin-top: 20px;
+        width: 270px;
+        height: 2em;
+        display: block;
+        float: left;
+        text-align: center;
+        line-height: 2em;
+        color: #fff;
+        font-size: 1em;
+        /*background: #fff;*/
+        /*background-image: url(../img/index/icon03.png);*/
+        /*background-repeat: no-repeat;*/
+        /*background-position: 256px 19px;*/
+    }
+
+
+    .buttonWayra {
+        overflow: hidden;
+        width: 270px;
+        -webkit-transition: border-color 0.3s, color 0.3s;
+        transition: border-color 0.3s, color 0.3s;
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .button {
+        min-width: 150px;
+        max-width: 270px;
+        display: block;
+        border: none;
+        color: inherit;
+        vertical-align: middle;
+        position: relative;
+        z-index: 1;
+        -webkit-backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .buttonWayra::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #4b4b4b;
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: 50%;
+        transform-origin: 50%;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+    .buttonWayra.buttonInverted:hover {
+        border: 1px solid #4b4b4b;
+    }
+
+    .buttonWayra:hover {
+        color: #4b4b4b;
+    }
+
+    .buttonWayra:hover::before {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+    }
+</style>
+<body>
+
+<include file="Public:nav" />
+
+<!--滑动区域-->
+<div class="swiper-wrapper container" >
+    <div class="content_0">
+        <div class="swiper-container" style="height:590px; margin-top:-1px;" >
+            <div class="swiper-wrapper flexslider">
+                <div class="swiper-slide">
+                    <div class="content_0_text1 container ER30Car ER30-01">
+                        <img src="{$IMG_URL}index/slide/banner02.jpg">
+                        <div style="position:absolute; top:40%; right:0;left: 0;color:white;" class="animated">
+                            <h1 style="text-align: center;font-size: 4rem;">汽车越来越多</h1>
+                        </div>
+                        <!--<a href="https://izhongchou.taobao.com/dreamdetail.htm?spm=0.0.0.0.OCnnZQ&id=10089360" class="car-buy">立即抢购</a>-->
+                        <!--<a href="/m/item/infoR30" class="car-canshu">参&nbsp;数</a>-->
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content_0_text2 container ER30Car ER30-01">
+                        <img src="{$IMG_URL}index/slide/banner03.jpg">
+                        <!--<a href="/m/partners" class="join"></a>-->
+                        <!--<a href="/m/item/infoR30" class="car-canshu">参&nbsp;数</a>-->
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content_0_text2 container ER30Car ER30-01">
+                        <img src="{$IMG_URL}index/slide/banner01.jpg">
+                        <!--<a href="/m/partners" class="join"></a>-->
+                        <!--<a href="/m/item/infoR30" class="car-canshu">参&nbsp;数</a>-->
+                    </div>
+                </div>
+                <!--<div class="swiper-slide">
+                    <div class="content_0_text3"><img src="img/index/banner01.png"></div>
+                </div>-->
+            </div>
+            <div class="clear"></div>
+            <div class="pagination hder30">
+                <span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span>
+                <span class="swiper-pagination-switch"></span>
+                <span class="swiper-pagination-switch"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--卓越续航-->
+<!--<div style="background:url({$IMG_URL}index/video0.png) center no-repeat;" class="container carpub">-->
+    <!--<div class="container ER30Car ER30-02">-->
+        <!--&lt;!&ndash;<img src="{$IMG_URL}index/ER30-255.png" class="wow bounceIn">&ndash;&gt;-->
+        <!--<p class="wow fadeInLeft">续航里程＞250KM，无忧畅行都市新生活；<br />超高性价比，傲视同价位其他车型。</p>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--三个优势-->
+<div class="main">
+    <div class="container rowFirst">
+        <ul>
+            <li  style="overflow: hidden"><img src="{$IMG_URL}index/icon.png"></li>
+            <!--<li class="energy" style="background-image: url({$IMG_URL}index/icons-01.png)"></li>-->
+            <!--<li class="safe" style="background-image: url({$IMG_URL}index/icons-02.png)"></li>-->
+            <!--<li class="control" style="background-image: url({$IMG_URL}index/icons-03.png)"></li>-->
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <video id="preview-player0" class="video-js" controls preload="off"
+           poster=""
+           data-setup='{}' style="margin:0 auto; width: 640px">
+        <source src="{$IMG_URL}index/company_desc_wechat.mp4" type='video/mp4'>
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <video id="preview-player1" class="video-js" controls preload="off"
+           poster=""
+           data-setup='{}' style="margin:0 auto; width: 640px">
+        <source src="{$IMG_URL}index/two_floor.mp4" type='video/mp4'>
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <video id="preview-player2" class="video-js" controls preload="off"
+           poster=""
+           data-setup='{}' style="margin:0 auto">
+        <source src="{$IMG_URL}index/five_floor.mp4" type='video/mp4'>
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+</div><!-- /.modal -->
+
+<div class="container row" style="padding-top:0"><!--俊风-->
+    <div id="" class="rowLeft carJf leadLeft">
+        <img src="{$IMG_URL}index/video0.png" class="carImg">
+        <div class="lead">
+            <P><!--<img src="{$IMG_URL}index/name01.png">--></P>
+        </div>
+    </div>
+    <div class="rowRight jieshao">
+        <div>
+            <h2>公司简介<br /></h2>
+            <p>上海腾库智能科技有限公司总部位于上海，是一家拥有多项专利技术，专业从事轨道式无避让立体停车设备的技术研发、升级和咨询服务的智能科技公司。主要产品包括轨道式无避让立体停车设备、自动化仓储设备和可移动车库等。 公司下设研发中心、生产基地、营销中心、工程维保中心, 并计划在全国七大区域设立ODM 生产基地和物转中心。 </p>
+
+        </div>
+        <a id="company_desc" href="#" class="detail" style="margin-top: 80px;">视频介绍</a>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--金融服务-->
+<div class="container row"><!--俊风-->
+    <div id="" class="rowLeft carJf leadLeft">
+        <img src="{$IMG_URL}index/video1.png" class="carImg">
+        <div class="lead">
+            <P><!--<img src="{$IMG_URL}index/name01.png">--></P>
+        </div>
+    </div>
+    <div class="rowRight jieshao">
+        <div>
+            <h2>TK－1.0 双层立体停车设备<br /></h2>
+            <p>本产品的结构主要由框架轨道、载车平台及控制系统等三部分组成。
+                框架轨道：采用特制型材钢结构组成的轨道框架，用来支撑和承载汽车和载车平台的升降及侧向移进移出；
+                载车平台：采用定制悬臂叉齿结构及工作原理，传动并承载汽车进行升降及横移工作；
+                控制系统：采用控制模块、显示器、雷达系统、光电测微器、报警器等组成，主要用来控制、协调停车设备的运营及安全。</p>
+        </div>
+        <a id="two_floor" href="#" class="detail" style="margin-top: 110px;">视频介绍</a>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+
+<!--急速换电-->
+<div class="container row"><!--俊风-->
+    <div id="" class="rowLeft carJf leadLeft">
+        <img src="{$IMG_URL}index/video2.png" class="carImg">
+        <div class="lead">
+            <P><!--<img src="{$IMG_URL}index/name01.png">--></P>
+        </div>
+    </div>
+    <div class="rowRight jieshao">
+        <div>
+            <h2>TK－1.0 五层立体停车设备<br /></h2>
+            <p>本产品的结构主要由框架轨道、载车平台及控制系统等三部分组成。
+                框架轨道：采用特制型材钢结构组成的轨道框架，用来支撑和承载汽车和载车平台的升降及侧向移进移出；
+                载车平台：采用定制悬臂叉齿结构及工作原理，传动并承载汽车进行升降及横移工作；
+                控制系统：采用控制模块、显示器、雷达系统、光电测微器、报警器等组成，主要用来控制、协调停车设备的运营及安全。</p>
+        </div>
+        <a id="five_floor" href="#" class="detail" style="margin-top: 110px;">视频介绍</a>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--帮助中心-->
+<div class="help">
+    <div class="container rowLast">
+        <ul>
+            <li class="notice jieshao">
+                <h2>TOPARK</h2>
+                <h3>关于腾库</h3>
+                <p>
+                    上海腾库智能科技有限公司总部位于上海，是一家拥有多项专利技术，专业从事轨道式无避让立体停车设备的技术研发、升级 和咨询服务的智能科技公司。 公司下设研发中心、生产基地、营销中心、 工程维保中心, 并计划在全国五大区域设立ODM 生产基地和物转中心。
+                </p>
+                <a href="__APP__/Home/About/about.html" class="noticeA button buttonWayra  buttonInverted">详细介绍</a>
+
+
+            </li>
+            <li class="battery jieshao">
+                <h2>PRODUCT</h2>
+                <h3>产品优势</h3>
+                <p>
+                    高效 ：节约用地、适用广泛、使用率高<br />
+                    灵活 ：独立运行、故障率低、维保简单<br />
+                    便捷 ：直停侧进、停取方便、智能控制<br />
+                    环保 ：单个电机、节约能源、减少排放<br />
+                </p>
+                <a href="__APP__/Home/Core/core.html" class="batteryA button buttonWayra  buttonInverted">详细介绍</a>
+
+            </li>
+            <li class="contact jieshao">
+                <h2>CONTACT</h2>
+                <h3>联系我们</h3>
+                <p>上海腾库智能科技有限公司<br />
+                    地址：上海市闵行区恒西路189号507室<br />
+                    电话：+86 21 34786960 <br />
+                    传真：+86 21 34786970 <br />
+                    邮箱：info@toparkchina.com</p>
+                <a href="__APP__/Home/About/about.html#contact" class="contactA button buttonWayra  buttonInverted">详细联系方式</a>
+
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+
+
+
+<include file="Public:footer" />
+
+<script src="{$JS_URL}idangerous.swiper-2.1.min.js"></script>
+<script type="text/javascript" src="{$JS_URL}jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+
+</script>
+<script>
+    window.onload = loadSwipe2();
+    function loadSwipe2(){
+        /* 轮播 */
+        var mySwiper = new Swiper ('.content_0 .swiper-container', {
+            pagination: '.content_0 .pagination',
+            paginationClickable: true,
+            spaceBetween: 50,
+            centeredSlides: true,
+            allowSwipeToPrev : false,
+            runCallbacksOnInit:true,
+            freeMode : false,
+            autoplayDisableOnInteraction: false,
+            autoplay: 3000,
+            loop:true,
+            onTouchEnd :function(){
+                switch(mySwiper.activeIndex){
+                }
+            },
+//            onSlideChangeStart: function(){
+//                alert("onSlideChangeStart" + mySwiper.activeIndex);
+//                jQuery(".flexslider .container div").removeClass("animatedLong zoomInFade");
+//                jQuery(".flexslider .container div").addClass("animatedLong zoomInFade");
+//            },
+//            onSlideChangeEnd: function(){
+//                alert("onSlideChangeEnd" + mySwiper.activeIndex);
+//                jQuery(".flexslider .container div").removeClass("animatedLong zoomInFade");
+
+//                jQuery(".flexslider .container div").addClass("animatedLong zoomInFade");
+
+//            }
+        })
+
+//        var mySwiper = $('.content_0 .swiper-container').swiper({
+//            pagination: '.content_0 .pagination',
+//            paginationClickable: true,
+//            spaceBetween: 50,
+//            centeredSlides: true,
+//            allowSwipeToPrev : false,
+//            runCallbacksOnInit:true,
+//            autoplayDisableOnInteraction: false,
+//            autoplay: 3000,
+//            loop:true,
+//            onTouchEnd :function(){
+//                switch(mySwiper.activeIndex){
+//                }
+//            },
+//
+//            onTransitionStart: function(swiper){
+//                console("beginning!!!")
+//                alert("beginning");
+//            }
+//        });
+    }
+    function check(){
+        var name = $("#name").val();
+        var phone = $("#phone").val();
+        var carType = $("#carType").val();
+        if(name == '' || name == null){
+            $("#tip").text("请输入中文姓名")
+            $("#tip").removeClass("tip_hidden");
+            return;
+        }
+        if(phone == '' || phone == null){
+            $("#tip").text("请输入手机号码")
+            $("#tip").removeClass("tip_hidden");
+            return;
+        }
+        $.ajax({
+            async:false,
+            url:'/order/check',
+            type : "POST",
+            data:{'name':name,'phone':phone,'carType':carType},
+            success:function(result){
+                if(result.code == 0){
+                    $("#tip").addClass("tip_hidden");
+                    $("#submit_btn").text("提交中……")
+                    $("#submit_btn").attr("disabled","disabled");
+                    $("#yuyueForm").submit();
+                }else{
+                    $("#tip").text(result.msg)
+                    $("#tip").removeClass("tip_hidden");
+                }
+            }
+        })
+    }
+</script>
+
+<script src="{$JS_URL}bootstrap.min.js"></script>
+<script src="http://vjs.zencdn.net/5.4.6/video.js"></script>
+
+
+<script type="text/javascript">
+    /*$('#myModal').modal("show")*/
+    /*var myPlayer = videojs('preview-player');*/
+    $(document).ready(function(){
+        $("#two_floor").click(function(){
+            $('#myModal1').modal("show");
+            var myPlayer1 = videojs('preview-player1');
+//            myPlayer1.play();   //play方式影响进度条的使用
+        })
+
+        $("#five_floor").click(function(){
+            $('#myModal2').modal("show");
+            var myPlayer2 = videojs('preview-player2');
+//            myPlayer2.play();
+        })
+
+        $("#company_desc").click(function(){
+            $('#myModal0').modal("show");
+            var myPlayer0 = videojs('preview-player0');
+//            myPlayer0.play();
+        })
+
+
+        $('#myModal0').on('hidden.bs.modal', function (e) {
+            // do something...
+            var myPlayer0 = videojs('preview-player0');
+            myPlayer0.pause();
+        })
+
+        $('#myModal1').on('hidden.bs.modal', function (e) {
+            // do something...
+            var myPlayer1 = videojs('preview-player1');
+            myPlayer1.pause();
+        })
+
+        $('#myModal2').on('hidden.bs.modal', function (e) {
+            // do something...
+            var myPlayer2 = videojs('preview-player2');
+            myPlayer2.pause();
+        })
+
+
+    })
+</script>
+</body>
+</html>

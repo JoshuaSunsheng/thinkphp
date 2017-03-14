@@ -1,0 +1,62 @@
+<include file="Public:header" />
+<body>
+
+<include file="Public:nav" />
+
+<style>
+    .width100{
+        overflow: hidden;
+    }
+</style>
+<div class="">
+    <div style="position: relative;opacity: 1;display: block;z-index: 2;text-align:center;"  class="width100">
+        <img src="{$IMG_URL}future/future04.jpg">
+        <!--<div style="position:absolute; top:40%; right:0;left: 0;color:white;">-->
+        <!--<h1 class="wow fadeInDown" style="text-align: center;color: #FFFFFF;">新能源充电桩</h1>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="">
+    <div style="position: relative;opacity: 1;display: block;z-index: 2;text-align:center;margin-left:-420px"  class="width100">
+        <img src="{$IMG_URL}future/future01.jpg">
+        <!--<div style="position:absolute; top:40%; right:0;left: 0;color:white;">-->
+        <!--<h1 class="wow fadeInDown" style="text-align: center;color: #FFFFFF;">新能源充电桩</h1>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="">
+    <div style="position: relative;opacity: 1;display: block;z-index: 2;text-align:center;margin-left:-420px"  class="width100">
+        <img src="{$IMG_URL}future/future02.jpg">
+    </div>
+</div>
+
+<div class="">
+    <div style="position: relative;opacity: 1;display: block;z-index: 2;text-align:center;margin-left:-430px"  class="width100">
+        <img src="{$IMG_URL}future/future03.jpg">
+    </div>
+</div>
+
+<div class="Jf-yuyue container" id="order">
+    <form action="/order/save" method="post" id="yuyueForm">
+        <input type="hidden" id="carType" name="carType" value="A08" />
+        <h3>预约销售</h3>
+        <ul>
+            <li>
+                <input type="text" id="name" name="name"  placeholder="我们的邮箱" required="true" value="info@toparkchina.com"/>
+            </li>
+
+        </ul>
+        <p class="tip tip_hidden" id="tip"></p>
+        <a  id="submit_btn" style=" display: block;  color: #000000;  text-decoration: none;   line-height: 70px;"
+            class="Submit" href="Mailto:info@toparkchina.com?CC=info@toparkchina.com&BCC=info@toparkchina.com&Subject=Hello&Body=你好">给我发邮件</a>
+        <!--<button type="button" onclick="check()" class="Submit" id="submit_btn">提交</button>-->
+    </form>
+</div>
+
+<!--底部导航-->
+<include file="Public:footer" />
+
+</body>
+</html>

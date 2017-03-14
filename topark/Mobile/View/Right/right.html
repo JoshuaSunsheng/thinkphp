@@ -1,0 +1,158 @@
+<include file="Public:header" />
+<body>
+
+<include file="Public:nav" />
+
+<style>
+    .notice{
+        height: 340px;
+    }
+
+    .rowLast > ul > li {
+        display: block;
+        width: 274px;
+        height: auto;
+        float: left;
+    }
+
+    .rowLast {
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    h3 {
+        font-size: 0.75em;
+        text-align: center;
+    }
+</style>
+
+<!--<div class="aboutBg minWidth" style="background-image: url({$IMG_URL}product/TK1.0.png)"></div>&lt;!&ndash;顶部背景图片&ndash;&gt;-->
+<div class="Carousel" >
+    <div class="item flexslider" style="height: 458px">
+        <ul class="slides itemUl">
+            <li style="background:url({$IMG_URL}core/aboutBg.jpg) 50% 80% no-repeat;height: 458px">
+
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div class="about">
+    <section class="container " id="company"><!--公司简介-->
+        <h4>知识产权</h4>
+        <div>
+            <p>
+                公司核心成员经过数年轨道式无避让立体停车设备的研发, 目前已拥有一项世界先进的国家专利技术 “一种自动升降平移的仓储设备”并在此技术基础上研发出TK１.０轨道式无避让立体停车设备，该产品解决了市场现有各类立体停车设备占地面积大、停取车不便、停取车时间长、维保复杂、能耗高等问题，提高了空间与设备使用率，降低了运行能耗与产品空置率。 <br />
+               <!-- 实用新型专利号：　ZL 2015 2 0027263.1<br />
+                发明专利号：　　　ZL 2015 1 0019841.1<br />-->
+            </p>
+        </div>
+    </section>
+
+
+    <div class="help">
+        <div class="container rowLast">
+            <ul>
+                <li class="notice jieshao" style="margin-left: 5%;">
+                    <img src="{$IMG_URL}zl/zl1.jpg" style="width: 100%;">
+                    <!--<h3>发明专利号:ZL 2015 2 0027263.1</h3>-->
+                </li>
+                <li class="battery jieshao">
+                    <img src="{$IMG_URL}zl/zl2.jpg" style="width: 100%;">
+                    <h3>发明专利号:ZL 2015 1 0019841.1</h3>
+                </li>
+                <li class="contact jieshao" >
+                    <!--<img src="{$IMG_URL}zl/zl1.jpg" style="width: 100%;">-->
+                    <!--<h3>发明专利号:ZL 2015 2 0027263.1</h3>-->
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <hr>
+
+        </div>
+        <div class="container rowLast">
+            <ul>
+                <li class="notice jieshao" style="margin-left: 5%;">
+                    <img src="{$IMG_URL}zl/ump1.jpg" style="width: 100%;">
+                    <!--<h3>实用新型专利号:ZL 2015 2 0027263.1</h3>-->
+                </li>
+                <li class="battery jieshao">
+                    <img src="{$IMG_URL}zl/ump2.jpg" style="width: 100%;">
+                    <!--<h3>实用新型专利号:ZL 2016 2 0035757.9</h3>-->
+                </li>
+                <li class="contact jieshao" style="margin-left: 5%;">
+                    <img src="{$IMG_URL}zl/ump3.jpg" style="width: 100%;">
+                    <h3>实用新型专利号:ZL 2016 2 0035631.1</h3>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <hr>
+        </div>
+        <div class="container rowLast">
+            <ul>
+                <li class="notice jieshao" style="margin-left: 5%;">
+                    <img src="{$IMG_URL}zl/report.jpg" style="width: 100%;">
+                    <h3>腾库型式试验报告GJ80790-2016  封面</h3>
+                </li>
+                <li class="battery jieshao">
+                    <img src="{$IMG_URL}zl/approvement.jpg" style="width: 100%;">
+                    <h3>特种设备制造许可证:TS2410P56-2020</h3>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!--帮助中心-->
+
+
+<hr>
+
+
+<script type="text/javascript">
+    function iFrameHeight() {
+        var ifm= document.getElementById("iframepage");
+        var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+        if(ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+        }
+    }
+
+    //百度地图API功能
+    function loadJScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=t7wkvulOr3Ob76qqAaiD2de6&callback=init"
+        document.body.appendChild(script);
+    }
+    function init() {
+        var map = new BMap.Map("baiduMap",{minZoom:15,maxZoom:20});
+        var point = new BMap.Point(121.517715,31.092545);
+        map.centerAndZoom(point,18);
+
+        var myIcon = new BMap.Icon("{$IMG_URL}position.png",new BMap.Size(24,34));
+        var marker = new BMap.Marker(point,{icon:myIcon});
+        map.addOverlay(marker);
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+
+        var opts = {
+            width : 350,
+            height: 60,
+            title : "上海腾库智能电子科技有限公司" ,
+            enableMessage:true
+        }
+        var infoWindow = new BMap.InfoWindow("上海市｜ 闵行区｜ 恒西路189号507室", opts);
+        marker.addEventListener("click", function(){
+            map.openInfoWindow(infoWindow,point);
+        });
+    }
+    window.onload = loadJScript;
+</script>
+
+<!--底部导航-->
+<include file="Public:footer" />
+
+</body>
+</html>
